@@ -6,26 +6,27 @@
 - Projet colorisation conservé.
 - Étude Local RAG ajoutée avec objectif, flux, architecture, stack, difficulté réelle et limites.
 - Capture UI et schéma d’architecture copiés dans `assets/local-rag/`.
-- Version polished de 45 secondes intégrée comme unique vidéo publique.
+- Version polished de 53 secondes intégrée comme unique vidéo publique.
 - Variante technique conservée dans l’archive locale, sans lien depuis la page.
 - Aucun nom d’entreprise, document métier ou chemin local conservé dans les fichiers publiables.
 
 ## Vidéos produites
 
-- `brag-output/local-rag-polished/brag.mp4` — 45 s, 1920×1080, 30 fps, sans piste audio.
+- `brag-output/local-rag-polished/brag.mp4` — 53 s, 1920×1080, 30 fps, sans piste audio.
 - `brag-output/local-rag-technical/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - Posters extraits et intégrés comme première frame.
 - Storyboards et briefs présents dans chaque dossier.
 - Rendu polished entièrement silencieux : aucune musique, voix off ou effet sonore.
 - Scène d’indexation clarifiée : chaque passage affiche son vecteur numérique, puis son ajout explicite à une entrée ChromaDB.
+- Scène finale ajoutée sur l’apprentissage : vrai code de similarité cosinus et MMR, compétences acquises et distinction explicite entre les embeddings fournis par sentence-transformers et la logique RAG codée à la main.
 
 ## Vérifications effectuées
 
 - `hyperframes lint` : OK, 0 erreur et 0 warning pour la composition polished.
 - `hyperframes check` : OK ; runtime, motion et contraste conformes.
-- Contrôle de la composition à 10 instants, dont 5 captures rapprochées de l’indexation et de sa flèche.
-- Contrôle du MP4 final toutes les 2 secondes : 23 images examinées, sans écran vide, saut ni élément fantôme.
-- Décodage intégral : OK. H.264, 1920×1080, 30 fps, 1 350 images, 45,000 s ; aucune piste audio.
+- Contrôle de la composition à 9 instants, centré sur l’indexation et la nouvelle conclusion.
+- Contrôle du MP4 final toutes les 2 secondes : 27 images examinées, plus 6 captures rapprochées de la flèche et de la conclusion.
+- Décodage intégral : OK. H.264, 1920×1080, 30 fps, 1 590 images, 53,000 s ; aucune piste audio.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -46,8 +47,9 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 - La preuve finale distingue clairement la question utilisateur et la réponse de l’« Assistant local ».
 - L’indexation ne repose plus sur des points abstraits : trois passages, leurs vecteurs et leurs enregistrements ChromaDB restent lisibles dans le même plan.
 - Les sept scènes et leurs animations ont été ralenties proportionnellement, sans ajout de contenu.
-- La flèche « Ajout à l’index » s’arrête avant le panneau ChromaDB et reste au premier plan.
-- Le rendu final a été contrôlé via 23 images réparties sur toute la durée et décodé intégralement sans erreur.
+- La flèche « Ajout à l’index » dispose maintenant de sa propre colonne et d’une marge visible avant ChromaDB.
+- La conclusion valorise l’apprentissage réel sans laisser entendre que les modèles d’embeddings ou ChromaDB ont été réimplémentés.
+- Le rendu final a été contrôlé via 33 images réparties sur toute la durée et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
 
