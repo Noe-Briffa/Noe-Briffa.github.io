@@ -11,6 +11,8 @@ brag-output/**/*.wav
 brag-output/**/brag-v2.*
 brag-output/**/brag-v3*
 brag-output/**/brag-final.mp4
+brag-output/**/brag-final-*.mp4
+brag-output/**/snapshots-*/
 brag-output/**/review-v2/
 brag-output/**/review-v3/
 
