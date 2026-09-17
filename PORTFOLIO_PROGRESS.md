@@ -24,6 +24,9 @@
 - `hyperframes check` : OK ; runtime, motion et contraste conformes.
 - `hyperframes keyframes` : OK.
 - Contrôle renforcé de la composition : 25 images globales, 31 images du flux recherche/génération et 17 images de la preuve finale, soit 73 images examinées.
+- Contrôle renforcé du MP4 final aux mêmes 73 instants : OK, sans écran vide, chemin anticipé, saut ni élément fantôme.
+- Décodage intégral : OK. H.264, 1920×1080, 30 fps, 750 images, 25,000 s ; audio AAC stéréo 48 kHz.
+- Quatre événements sonores détectés aux temps prévus ; crête maximale à −7,13 dBFS, sans saturation.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -42,7 +45,7 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 - La version polished remplace l’ancien montage et devient l’unique vidéo visible sur la page.
 - Le trait de retour du contexte est masqué jusqu’à sa vraie étape ; recherche et génération partagent désormais un schéma continu.
 - La preuve finale distingue clairement la question utilisateur et la réponse de l’« Assistant local ».
-- Le rendu final a été contrôlé via sa planche de sept images clés et décodé intégralement sans erreur.
+- Le rendu final a été contrôlé via 73 images réparties sur trois séries et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
 
