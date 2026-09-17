@@ -36,12 +36,12 @@
 
 Le dépôt n’a aucun remote et rien n’a été poussé.
 
-## À reprendre
+## Clôture de cette passe
 
-1. Regarder les deux vidéos et choisir la version finale à conserver comme vidéo principale.
-2. Si nécessaire, améliorer le montage choisi (notamment la lisibilité ou le rythme) puis rerendre.
-3. Vérifier le portfolio sur mobile et décider si la capture finale doit être remplacée.
-4. Faire un dernier `git diff`, scanner les fichiers suivis, puis créer le commit final.
+- La version polished est conservée comme vidéo principale ; la version technique reste accessible depuis la page.
+- Les deux rendus ont été regardés via leurs planches de snapshots et validés par Hyperframes.
+- Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
+- Le scan final, les chemins relatifs et l’état Git sont propres.
 
 ## Point d’attention
 
