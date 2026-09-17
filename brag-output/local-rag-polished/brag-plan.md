@@ -42,7 +42,7 @@ J’ai construit un RAG local en Python : PDF, recherche vectorielle, contexte e
 ## Audio direction
 - Role: ponctuation discrète des interactions.
 - Music: aucune.
-- SFX posture: quatre sons CC0 du pack Brag (saisie, envoi, passage à la génération, révélation finale), à faible volume.
+- SFX posture: treize accents CC0 du pack Brag répartis sur tout le film : accroche, PDF, découpage, vecteurs, index, saisie, envoi, génération et révélation finale.
 - Restraint rule: le son confirme l’action sans prendre le dessus sur la lisibilité.
 
 ## Storyboard
@@ -54,7 +54,7 @@ J’ai construit un RAG local en Python : PDF, recherche vectorielle, contexte e
 Le document `document.pdf` entre dans le pipeline et devient trois passages distincts.
 
 ### Scene 3 — Indexation — 6 à 9s
-Les passages deviennent des embeddings, puis rejoignent un index ChromaDB local.
+Trois passages deviennent des vecteurs numériques lisibles, puis rejoignent un panneau ChromaDB qui confirme chaque entrée et le nombre de passages prêts pour la recherche.
 
 ### Scene 4 — Question — 9 à 12s
 La question de démonstration neutre est saisie dans l’interface reconstruite en HTML.
@@ -68,4 +68,4 @@ Sans changer d’écran, le titre bascule vers « Génération locale », FastAP
 ### Scene 7 — Preuve — 21 à 25s
 Conversation lisible : question utilisateur, avatar « Assistant local », réponse en phrase naturelle, valeur `ORION-742` mise en évidence et source `document.pdf p.1`.
 
-**Audio summary:** quatre accents CC0 discrets, sans voix off ni musique.
+**Audio summary:** treize accents CC0 discrets, dont cinq frappes synchronisées avec la saisie, sans voix off ni musique.
