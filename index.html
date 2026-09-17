@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Projet de colorisation d'images par réseau de neurones.">
-  <title>Colorisation d'images · Projet Computer Vision</title>
+  <meta name="description" content="Portfolio technique de Noé Briffa : computer vision et RAG local.">
+  <title>Portfolio technique · Noé Briffa</title>
   <style>
     :root { --ink:#18211f; --muted:#65716d; --paper:#f4f1e9; --line:#d8d5ca; --accent:#b8e26f; --dark:#202b28; }
     * { box-sizing:border-box; }
     body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, sans-serif; line-height:1.55; }
     main { max-width:1160px; margin:auto; padding:28px clamp(22px,5vw,72px) 80px; }
     nav { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:20px; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+    nav a { margin-left:18px; text-decoration:none; }
     nav span:last-child { color:var(--muted); }
     .hero { min-height:64vh; display:grid; grid-template-columns:1.1fr .9fr; gap:8vw; align-items:center; padding:72px 0 64px; }
     .eyebrow { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
@@ -48,6 +49,17 @@
     .button:hover, .button:focus-visible { background:var(--accent); }
     .note { color:var(--muted); font-size:.9rem; }
     footer { border-top:1px solid var(--line); padding-top:22px; color:var(--muted); font-size:.82rem; }
+    .project { scroll-margin-top:28px; }
+    .project + .project { margin-top:18px; }
+    .project-tag { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .rag-card { background:#17212b; color:#f7f3e9; padding:18px; box-shadow:16px 16px 0 #f58220; transform:rotate(-1.5deg); }
+    .rag-card img { display:block; width:100%; height:auto; }
+    .rag-card small { display:block; margin-top:14px; color:#cbd6dd; font-size:.8rem; }
+    .flow-list { display:grid; gap:10px; margin:26px 0 0; padding:0; list-style:none; counter-reset:flow; }
+    .flow-list li { counter-increment:flow; border-left:3px solid var(--accent); padding:10px 14px; background:#fbfaf5; }
+    .flow-list li::before { content:counter(flow, decimal-leading-zero); margin-right:12px; color:#4d6d2f; font:600 .75rem Inter, sans-serif; }
+    .stack { color:var(--muted); font-size:.9rem; }
+    .video-note { color:var(--muted); font-size:.9rem; }
     @media (max-width:760px) { .hero, .section-grid { grid-template-columns:1fr; } .hero { padding-top:52px; } .hero-card { max-width:480px; margin:10px auto 0; } .metrics { grid-template-columns:1fr; } }
     @media (max-width:520px) { .triptych { grid-template-columns:1fr; } .triptych img { aspect-ratio:1.5; } .pipeline-diagram { overflow-x:auto; } .pipeline-diagram svg { min-width:640px; } }
     @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; } }
@@ -55,7 +67,8 @@
 </head>
 <body>
   <main>
-    <nav><span>Noé Briffa / Projet 01</span><span>Computer Vision</span></nav>
+    <nav><span>Noé Briffa / Portfolio technique</span><span><a href="#colorisation">Projet 01</a><a href="#rag">Projet 02</a></span></nav>
+    <article id="colorisation" class="project">
     <header class="hero">
       <div>
         <div class="eyebrow">Projet personnel · Python · PyTorch</div>
@@ -68,7 +81,24 @@
     <section><div class="section-grid"><h2>Mesurer avant de montrer</h2><div><p>Les résultats ci-dessous viennent d’une évaluation indépendante sur 100 images de test, sélectionnées avec la seed 42.</p><div class="metrics"><div class="metric"><strong>23,29</strong><small>PSNR moyen</small></div><div class="metric"><strong>0,940</strong><small>SSIM moyen</small></div><div class="metric"><strong>14,84</strong><small>DeltaE moyen</small></div></div><p class="note">Les couleurs sont plausibles, mais une image noir et blanc ne permet pas de garantir les couleurs historiques d’origine.</p></div></div></section>
     <section><div class="section-grid"><h2>Voir le modèle travailler</h2><div><p>La vidéo résume le pipeline, l’architecture et les sorties sélectionnées.</p><video controls preload="metadata" poster="assets/colorization/brag.jpg"><source src="assets/colorization/brag.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn">Code source</a><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn/releases/tag/v1.0.0-portfolio">Checkpoint et Release</a></div></div></div></section>
     <section><div class="section-grid"><h2>Pour les prochains projets</h2><div><p>La génération de cette vidéo a donné lieu à un guide de préparation et de contrôle : images propres, libellés dans la composition, exemples vérifiés et métriques correctement contextualisées.</p><a href="VIDEO_GUIDELINES.md">Lire le guide vidéo</a></div></div></section>
-    <footer>Projet réalisé avec Python, PyTorch, U-Net, CBAM et CIELAB.</footer>
+    </article>
+
+    <article id="rag" class="project">
+      <header class="hero">
+        <div>
+          <div class="project-tag">Projet personnel · Python · IA locale</div>
+          <h1>Comprendre un RAG en le construisant.</h1>
+          <p class="lede">Un assistant local répond à des questions sur un PDF en recherchant les passages utiles avant de solliciter un modèle GGUF. Le projet m’a surtout appris à transformer les principes d’un RAG en un pipeline Python compréhensible.</p>
+        </div>
+        <div class="rag-card"><img src="assets/local-rag/local-rag-demo.jpg" alt="Interface du Local RAG Assistant montrant une réponse sourcée depuis document.pdf"><small>Une question, une réponse locale, une source vérifiable.</small></div>
+      </header>
+      <section><div class="section-grid"><h2>Le flux RAG</h2><div><p>Chaque étape est visible dans le code : le document est extrait, découpé, vectorisé puis recherché. Les passages sélectionnés sont formatés dans un contexte avant l’appel au modèle local.</p><ol class="flow-list"><li>Extraire les pages du PDF avec PyMuPDF.</li><li>Découper le texte avec une taille et un chevauchement contrôlés.</li><li>Créer les embeddings et les conserver dans ChromaDB.</li><li>Rechercher les candidats puis appliquer une sélection MMR.</li><li>Construire le prompt et générer une réponse sourcée avec llama.cpp.</li></ol></div></div></section>
+      <section><div class="section-grid"><h2>Le travail réalisé</h2><div><p>Je n’ai pas importé une solution RAG complète. J’ai étudié le fonctionnement du retrieval augmented generation, puis écrit l’orchestration qui relie extraction, chunking, embeddings, recherche, contexte et génération.</p><p class="stack">Stack : Python · FastAPI · PyMuPDF · ChromaDB · sentence-transformers · llama.cpp · GGUF · CUDA · HTML/JavaScript.</p><p class="note">Les bibliothèques spécialisées restent utilisées pour leurs responsabilités propres ; la logique du pipeline et son enchaînement sont codés dans le projet.</p></div></div></section>
+      <section><div class="section-grid"><h2>Architecture locale</h2><div><img class="pipeline-diagram" src="assets/local-rag/architecture.png" alt="Schéma de l’architecture du Local RAG Assistant"><p class="video-note">Le navigateur appelle FastAPI. L’API lit le document, interroge ChromaDB et envoie le contexte à llama.cpp, sans service distant.</p></div></div></section>
+      <section><div class="section-grid"><h2>Voir le projet travailler</h2><div><p class="video-note">Version polished intégrée par défaut. Une variante plus technique est disponible pour comparaison.</p><video controls preload="metadata" poster="assets/local-rag/brag-polished.jpg"><source src="assets/local-rag/brag-polished.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="assets/local-rag/brag-technical.mp4">Voir la version technique</a><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc">Code source GitHub</a><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc#architecture">Architecture et documentation</a></div></div></div></section>
+      <section><div class="section-grid"><h2>Limites honnêtes</h2><div><p>Ce POC est conçu pour un usage local : il ne fournit pas d’authentification, dépend d’un modèle GGUF obtenu séparément et n’est pas destiné à être exposé directement sur Internet. La qualité dépend du document, du modèle et des réglages de génération.</p></div></div></section>
+    </article>
+    <footer>Deux projets personnels · Python, PyTorch, RAG local et ingénierie appliquée.</footer>
   </main>
 </body>
 </html>

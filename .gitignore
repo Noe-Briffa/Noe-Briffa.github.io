@@ -1,0 +1,16 @@
+# Local tooling and caches
+.ruff_cache/
+.pytest_cache/
+node_modules/
+*.log
+
+# Brag / Hyperframes working outputs (published media is copied explicitly)
+brag-output/*/composition/
+brag-output/*/tmp/
+brag-output/**/*.wav
+
+# Local editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
