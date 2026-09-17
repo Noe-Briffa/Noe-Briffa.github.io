@@ -1,34 +1,37 @@
 # Hyperframes Composition Brief: Local RAG Assistant — polished
 
 ## Objective
-Create a polished 20-second portfolio video showing a real local PDF RAG flow and the Python orchestration behind it.
+Create a polished 25-second portfolio video showing the complete local PDF RAG flow and the Python orchestration behind it.
 
 ## Output
 - Composition: `brag-output/local-rag-polished/composition/`
 - Render: `brag-output/local-rag-polished/brag.mp4`
-- Format: landscape, 1920x1080, 20 seconds
+- Format: landscape, 1920x1080, 25 seconds
 
 ## Source material
 - Project root: source project (local path intentionally omitted)
-- Real UI: `assets/img/local-rag-demo.jpg`
-- Real architecture: `assets/img/architecture.png`
+- UI reference: rebuilt as crisp HTML/CSS from the real application
+- Architecture source: rebuilt as animated HTML/SVG from the Archify component graph
 - Product: Local RAG Assistant
 - Copy: « Comprendre un RAG en le construisant. »; « Pipeline RAG local, orchestré en Python. »
 
 ## Creative direction
-Polished technical product film. Show UI first, then the actual architecture, then return to the proof. Avoid generic AI claims and confidential data.
+Polished technical product film. Preserve a clear visual subject in every scene, build the architecture progressively, and end on a readable sourced answer. Avoid generic AI claims and confidential data.
 
 ## Visual identity
 Background #f4f1e9; text #18211f; accents #f58220 and #b8e26f; Georgia/Inter fallbacks.
 
 ## Storyboard
-1. Hook — 4.2s — title, subtitle and real UI.
-2. Ingestion — 4.0s — UI shift and Python extraction/chunking caption.
-3. Pipeline — 7.6s — real Archify diagram and stack.
-4. Proof/outro — 4.2s — UI return and final claim.
+1. Hook — 0–3s — title and crisp reconstructed UI.
+2. Ingestion — 3–6s — PDF extraction and chunking.
+3. Indexation — 6–9s — embeddings into ChromaDB.
+4. Question — 9–12s — typed question and send action.
+5. Retrieval — 12–17s — architecture nodes and edges revealed in order.
+6. Local generation — 17–21s — context to llama-server and GGUF.
+7. Proof — 21–25s — answer `ORION-742` and source `document.pdf p.1`.
 
 ## Audio
-Intentional silence. No external audio is included because the bundled track has no verified redistribution terms.
+No music and no voiceover. Use only three low-volume CC0 effects from the Brag asset pack for typing, send, and final reveal.
 
 ## Hyperframes requirements
-Show real UI and architecture, keep all text readable, validate with `hyperframes lint`, `inspect`, `check`, `keyframes` and snapshots before rendering.
+Use deterministic seek-safe GSAP; never move the visual subject out of frame. Keep all text readable and validate with `hyperframes lint`, `check`, `keyframes` and snapshots before rendering.

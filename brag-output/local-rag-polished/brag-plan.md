@@ -26,7 +26,7 @@ Question → recherche des passages → réponse locale et source.
 - Interpretation: mouvements fluides, peu de texte, preuve visuelle avant les slogans.
 
 ## Format: landscape — 1920x1080
-## Duration: 20 seconds
+## Duration: 25 seconds
 
 ## Visual identity (from the project)
 - Background: #f4f1e9
@@ -40,23 +40,32 @@ Question → recherche des passages → réponse locale et source.
 J’ai construit un RAG local en Python : PDF, recherche vectorielle, contexte et réponse sourcée, sans framework RAG clé en main.
 
 ## Audio direction
-- Role: intentional silence
-- Music: none — aucun droit de redistribution explicite vérifié pour la musique groupée.
-- SFX posture: none — rendu silencieux pour éviter toute ambiguïté de licence.
-- Restraint rule: la lisibilité visuelle porte toute la démonstration.
+- Role: ponctuation discrète des interactions.
+- Music: aucune.
+- SFX posture: trois sons CC0 du pack Brag (saisie, envoi, révélation finale), à faible volume.
+- Restraint rule: le son confirme l’action sans prendre le dessus sur la lisibilité.
 
 ## Storyboard
 
-### Scene 1 — Hook — 4.2s
-Titre et capture de l’interface. Question : « Comprendre un RAG en le construisant. »
+### Scene 1 — Accroche — 0 à 3s
+« Comprendre un RAG en le construisant. » avec une interface HTML nette déjà visible.
 
-### Scene 2 — Ingestion — 4.0s
-La capture se décale ; texte : « Le document est extrait et découpé en Python. »
+### Scene 2 — Ingestion — 3 à 6s
+Le document `document.pdf` entre dans le pipeline et devient trois passages distincts.
 
-### Scene 3 — Pipeline — 7.6s
-Le schéma réel affiche recherche, contexte et génération ; stack discrète.
+### Scene 3 — Indexation — 6 à 9s
+Les passages deviennent des embeddings, puis rejoignent un index ChromaDB local.
 
-### Scene 4 — Proof / outro — 4.2s
-Retour sur l’interface et conclusion : « Pipeline RAG local, orchestré en Python · GitHub ».
+### Scene 4 — Question — 9 à 12s
+La question de démonstration neutre est saisie dans l’interface reconstruite en HTML.
 
-**Audio summary:** rendu silencieux, sans piste externe non vérifiée.
+### Scene 5 — Recherche — 12 à 17s
+Le schéma se construit progressivement : Utilisateur → Interface web → FastAPI → ChromaDB → sentence-transformers, puis le contexte revient vers FastAPI.
+
+### Scene 6 — Génération locale — 17 à 21s
+Le chemin FastAPI → llama-server → modèle GGUF est révélé et animé en orange.
+
+### Scene 7 — Preuve — 21 à 25s
+Gros plan sur la question, la réponse `ORION-742` et la source `document.pdf p.1`.
+
+**Audio summary:** trois accents CC0 discrets, sans voix off ni musique.

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920,height=1080">
+  <title>Local RAG Assistant — film polished</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #f4f1e9; color: #18211f; font-family: Arial, sans-serif; }
+    #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: radial-gradient(circle at 88% 12%, rgba(1,112,182,.13), transparent 30%), linear-gradient(120deg, rgba(184,226,111,.18), transparent 43%), #f4f1e9; }
+    .grid { position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(24,33,31,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(24,33,31,.08) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent); }
+    .header { position: absolute; left: 96px; right: 96px; top: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 20; }
+    .brand { display: flex; align-items: center; gap: 14px; font-size: 20px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .brand-dot { width: 14px; height: 14px; border-radius: 50%; background: #f58220; box-shadow: 0 0 0 8px rgba(245,130,32,.12); }
+    .local-pill { border: 1px solid rgba(24,33,31,.16); border-radius: 99px; padding: 10px 17px; background: rgba(255,255,255,.58); color: #496345; font-size: 16px; font-weight: 700; }
+    .progress { position: absolute; left: 96px; right: 96px; bottom: 54px; height: 5px; border-radius: 5px; overflow: hidden; background: rgba(24,33,31,.12); z-index: 20; }
+    .progress-fill { width: 100%; height: 100%; background: linear-gradient(90deg, #f58220, #1c9a7b); transform-origin: left center; }
+    .scene { position: absolute; inset: 0; opacity: 0; }
+    .scene-inner { position: absolute; left: 96px; right: 96px; top: 126px; bottom: 90px; }
+    .kicker { color: #4d6d2f; font-size: 22px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    h1, h2, p { margin: 0; }
+    h1 { font: 400 102px/.96 Georgia, serif; letter-spacing: -.055em; max-width: 830px; }
+    h2 { font: 400 66px/1.02 Georgia, serif; letter-spacing: -.04em; }
+    .copy { color: #5e6966; font-size: 27px; line-height: 1.4; }
+    .tag { display: inline-flex; align-items: center; gap: 9px; width: max-content; padding: 8px 13px; border-radius: 99px; background: #e8f3d5; color: #496345; font-size: 16px; font-weight: 700; }
+    .tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #7bb436; }
+    .app { position: absolute; border: 1px solid #d9dedc; border-radius: 24px; background: #fffdf9; box-shadow: 0 28px 70px rgba(24,33,31,.15); overflow: hidden; }
+    .app-bar { height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; border-bottom: 1px solid #e4e7e5; background: #fff; }
+    .app-title { display: flex; gap: 11px; align-items: center; font-size: 17px; font-weight: 700; }
+    .app-logo { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 10px; background: #0874b9; color: white; font-size: 11px; }
+    .status { color: #39835e; font-size: 13px; font-weight: 700; }
+    .app-body { padding: 22px; background: #fff8ef; }
+    .chat { display: grid; gap: 13px; }
+    .bubble { max-width: 79%; padding: 14px 17px; border-radius: 16px; font-size: 16px; line-height: 1.35; }
+    .bubble.user { margin-left: auto; background: #dceef8; }
+    .bubble.bot { background: #edf5f8; }
+    .source { margin-top: 10px; padding: 10px 12px; border: 1px solid #d8e0e2; border-radius: 9px; background: #fff; color: #383838; font-size: 13px; }
+    .composer { margin-top: 18px; display: flex; gap: 10px; padding: 8px; border: 1px solid #d9dedc; border-radius: 13px; background: white; }
+    .input { flex: 1; padding: 10px 12px; color: #65716d; font-size: 15px; white-space: nowrap; overflow: hidden; }
+    .send { display: grid; place-items: center; min-width: 90px; border-radius: 10px; background: #a94f00; color: white; font-size: 14px; font-weight: 700; }
+    #hook { opacity: 1; }
+    #hook .scene-inner { display: grid; grid-template-columns: .95fr 1.05fr; gap: 72px; align-items: center; }
+    #hook-copy { display: grid; gap: 26px; }
+    #hook-app { position: relative; inset: auto; width: 790px; height: 560px; transform: rotate(1.4deg); }
+    #hook-app .app-body { height: 496px; }
+    #hook-app .bubble.bot { margin-top: 22px; }
+    .micro-flow { display: flex; gap: 10px; align-items: center; color: #496345; font-size: 16px; font-weight: 700; }
+    .micro-flow span { padding: 8px 12px; border: 1px solid rgba(73,99,69,.18); border-radius: 9px; background: rgba(255,255,255,.7); }
+    .micro-flow i { width: 20px; height: 2px; background: #f58220; position: relative; }
+    .micro-flow i::after { content: ''; position: absolute; right: -1px; top: -3px; border-left: 6px solid #f58220; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+    #ingest .scene-inner, #indexing .scene-inner { display: grid; grid-template-columns: 520px 1fr; gap: 86px; align-items: center; }
+    .scene-copy { display: grid; gap: 22px; }
+    .workspace { position: relative; height: 600px; border: 1px solid rgba(24,33,31,.12); border-radius: 28px; background: rgba(255,255,255,.57); box-shadow: 0 24px 60px rgba(24,33,31,.08); }
+    .pdf { position: absolute; left: 90px; top: 145px; width: 210px; height: 278px; border-radius: 18px; background: white; border: 1px solid #d8d5ca; box-shadow: 14px 16px 0 rgba(245,130,32,.18); padding: 28px 24px; }
+    .pdf-fold { position: absolute; right: 0; top: 0; width: 54px; height: 54px; background: linear-gradient(225deg, #f4f1e9 50%, #f9b277 51%); border-radius: 0 17px 0 12px; }
+    .pdf strong { display: block; margin-top: 70px; font: 400 34px Georgia, serif; }
+    .pdf small { display: block; margin-top: 12px; color: #65716d; font-size: 16px; }
+    .flow-arrow { position: absolute; left: 330px; top: 278px; width: 130px; height: 3px; background: #f58220; transform-origin: left center; }
+    .flow-arrow::after { content: ''; position: absolute; right: -1px; top: -6px; border-left: 12px solid #f58220; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+    .chunks { position: absolute; left: 500px; top: 104px; width: 440px; height: 390px; }
+    .chunk { position: absolute; left: 0; width: 405px; height: 104px; padding: 18px 20px; border-radius: 16px; background: white; border: 1px solid #dce1df; box-shadow: 0 10px 26px rgba(24,33,31,.08); }
+    .chunk:nth-child(1) { top: 0; }
+    .chunk:nth-child(2) { top: 122px; left: 24px; }
+    .chunk:nth-child(3) { top: 244px; left: 48px; }
+    .chunk b { color: #0874b9; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+    .chunk-lines { margin-top: 13px; display: grid; gap: 8px; }
+    .chunk-lines i { display: block; height: 7px; border-radius: 5px; background: #e4e9e7; }
+    .chunk-lines i:last-child { width: 66%; }
+    .vector-field { position: absolute; left: 65px; top: 95px; width: 520px; height: 410px; }
+    .vector { position: absolute; width: 106px; height: 106px; border-radius: 50%; display: grid; place-items: center; background: #e7f5f0; border: 2px solid #1c9a7b; color: #14715c; font: 700 18px/1 Arial, sans-serif; box-shadow: 0 12px 28px rgba(28,154,123,.12); }
+    .vector:nth-child(1) { left: 36px; top: 36px; }
+    .vector:nth-child(2) { left: 195px; top: 146px; }
+    .vector:nth-child(3) { left: 56px; top: 270px; }
+    .vector:nth-child(4) { left: 350px; top: 45px; }
+    .db { position: absolute; right: 82px; top: 145px; width: 330px; height: 310px; display: grid; place-items: center; border: 2px solid #8f70c7; border-radius: 28px; background: #f4effd; color: #5e438c; }
+    .db-shape { width: 150px; height: 150px; border: 4px solid #8f70c7; border-radius: 50% / 18%; position: relative; }
+    .db-shape::before, .db-shape::after { content: ''; position: absolute; left: -4px; width: 150px; height: 30px; border: 4px solid #8f70c7; border-radius: 50%; background: #f4effd; }
+    .db-shape::before { top: -4px; }
+    .db-shape::after { bottom: -4px; }
+    .db-label { position: absolute; bottom: 34px; text-align: center; font-size: 20px; font-weight: 700; }
+    .db-label small { display: block; margin-top: 3px; }
+    #question .scene-inner { display: grid; place-items: center; }
+    #question-app { position: relative; inset: auto; width: 1260px; height: 650px; }
+    #question-app .app-body { height: 586px; display: grid; grid-template-columns: 1fr 260px; gap: 18px; }
+    .main-chat { padding: 16px; border-radius: 18px; background: rgba(255,255,255,.78); }
+    .side-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+    .metric { padding: 16px; border-radius: 14px; background: white; border: 1px solid #e1e5e3; }
+    .metric b { display: block; margin-top: 8px; font: 400 25px Georgia, serif; }
+    #typed-question { color: #18211f; }
+    .cursor { display: inline-block; width: 2px; height: 20px; margin-left: 3px; vertical-align: -3px; background: #f58220; }
+    #retrieval .scene-inner, #generation .scene-inner { display: grid; grid-template-rows: auto 1fr; gap: 24px; }
+    .arch-head { display: flex; align-items: end; justify-content: space-between; }
+    .arch-head .copy { max-width: 720px; text-align: right; font-size: 22px; }
+    .diagram { position: relative; width: 100%; height: 640px; border: 1px solid rgba(24,33,31,.13); border-radius: 26px; background: rgba(255,255,255,.68); box-shadow: 0 24px 60px rgba(24,33,31,.08); overflow: hidden; }
+    .machine { position: absolute; left: 256px; top: 44px; width: 1310px; height: 545px; border: 2px dashed rgba(245,130,32,.42); border-radius: 26px; }
+    .machine-label { position: absolute; left: 282px; top: 57px; color: #ad5f1e; font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .arch-node { position: absolute; width: 210px; height: 92px; padding: 18px 16px; border: 2px solid #b9c2bf; border-radius: 16px; background: #f7f8f7; box-shadow: 0 10px 22px rgba(24,33,31,.08); text-align: center; opacity: 0; }
+    .arch-node strong { display: block; font-size: 18px; }
+    .arch-node small { display: block; margin-top: 8px; color: #65716d; font-size: 14px; }
+    .arch-node.front { border-color: #57b7c8; background: #ebf8fb; }
+    .arch-node.back { border-color: #46b694; background: #eaf8f3; }
+    .arch-node.data { border-color: #9b7bcd; background: #f4effd; }
+    #n-user, #g-n-user { left: 70px; top: 275px; }
+    #n-ui, #g-n-ui { left: 335px; top: 275px; }
+    #n-api, #g-n-api { left: 625px; top: 275px; }
+    #n-chroma, #g-n-chroma { left: 950px; top: 105px; }
+    #n-embed, #g-n-embed { left: 1260px; top: 105px; width: 235px; }
+    #n-llama, #g-n-llama { left: 950px; top: 430px; }
+    #n-gguf, #g-n-gguf { left: 1260px; top: 430px; width: 235px; }
+    .paths { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .path { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1200; stroke-dashoffset: 1200; }
+    .path.retrieval { stroke: #0874b9; }
+    .path.generation { stroke: #f58220; }
+    .path.return { stroke: #1c9a7b; stroke-dasharray: 12 12; }
+    .packet { position: absolute; left: 1330px; top: 142px; width: 17px; height: 17px; border-radius: 50%; background: #0874b9; box-shadow: 0 0 0 8px rgba(8,116,185,.15); opacity: 0; }
+    .legend { position: absolute; left: 70px; bottom: 28px; display: flex; gap: 22px; color: #65716d; font-size: 15px; }
+    .legend span { display: flex; align-items: center; gap: 8px; }
+    .legend i { width: 22px; height: 4px; border-radius: 4px; }
+    .legend .blue { background: #0874b9; }
+    .legend .orange { background: #f58220; }
+    .local-badge { position: absolute; right: 48px; bottom: 26px; padding: 10px 15px; border-radius: 99px; background: #e8f3d5; color: #496345; font-size: 15px; font-weight: 700; }
+    #proof .scene-inner { display: grid; grid-template-columns: 520px 1fr; gap: 72px; align-items: center; }
+    #proof-copy { display: grid; gap: 22px; }
+    #proof-app { position: relative; inset: auto; width: 1000px; height: 610px; }
+    #proof-app .app-body { height: 546px; padding: 30px; }
+    #proof-app .bubble { font-size: 22px; padding: 19px 22px; }
+    #proof-app .bubble.bot { max-width: 86%; margin-top: 20px; border-left: 5px solid #1c9a7b; }
+    #proof-app .answer { font: 700 42px Georgia, serif; color: #18211f; }
+    #proof-app .source { margin-top: 16px; padding: 14px 16px; font-size: 18px; }
+    .verified { display: flex; align-items: center; gap: 12px; color: #14715c; font-size: 18px; font-weight: 700; }
+    .verified i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #0f6b52; color: white; font-style: normal; }
+  </style>
+</head>
+<body>
+<main id="root" data-composition-id="master" data-width="1920" data-height="1080" data-start="0" data-duration="25">
+  <div class="grid"></div>
+  <header class="header"><div class="brand"><span class="brand-dot"></span>Local RAG Assistant</div><div class="local-pill">100 % local · Python</div></header>
+  <section class="scene" id="hook"><div class="scene-inner"><div id="hook-copy"><div class="kicker">Projet personnel · IA locale</div><h1>Comprendre un RAG en le construisant.</h1><p class="copy">Une question sur un PDF. Une réponse locale. Une source vérifiable.</p><div class="micro-flow"><span>PDF</span><i></i><span>Recherche</span><i></i><span>Réponse</span></div></div><div class="app" id="hook-app"><div class="app-bar"><div class="app-title"><span class="app-logo">RAG</span>Local RAG Assistant</div><div class="status">● API en ligne</div></div><div class="app-body"><div class="chat"><div class="bubble user">Quel est l’identifiant de validation unique du projet fictif ?</div><div class="bubble bot"><b>ORION-742</b><div class="source">Source · document.pdf p.1</div></div></div><div class="composer"><div class="input">Écris ta question…</div><div class="send">Envoyer</div></div></div></div></div></section>
+  <section class="scene" id="ingest"><div class="scene-inner"><div class="scene-copy"><div class="kicker">01 · Ingestion</div><h2>Le PDF devient des passages exploitables.</h2><p class="copy">Extraction et découpage en Python, avec taille et chevauchement contrôlés.</p><span class="tag">document.pdf</span></div><div class="workspace"><div class="pdf"><div class="pdf-fold"></div><strong>PDF</strong><small>document.pdf</small></div><div class="flow-arrow"></div><div class="chunks"><div class="chunk"><b>Passage 01</b><div class="chunk-lines"><i></i><i></i></div></div><div class="chunk"><b>Passage 02</b><div class="chunk-lines"><i></i><i></i></div></div><div class="chunk"><b>Passage 03</b><div class="chunk-lines"><i></i><i></i></div></div></div></div></div></section>
+  <section class="scene" id="indexing"><div class="scene-inner"><div class="scene-copy"><div class="kicker">02 · Indexation</div><h2>Chaque passage devient un vecteur.</h2><p class="copy">sentence-transformers calcule les embeddings. ChromaDB conserve l’index local.</p><span class="tag">Embeddings locaux</span></div><div class="workspace"><div class="vector-field" data-layout-allow-overlap><div class="vector">[.82]</div><div class="vector">[.41]</div><div class="vector">[.67]</div><div class="vector">[.93]</div></div><div class="flow-arrow" style="left:590px;top:298px;width:120px"></div><div class="db"><div class="db-shape"></div><div class="db-label">ChromaDB<small>index vectoriel</small></div></div></div></div></section>
+  <section class="scene" id="question"><div class="scene-inner"><div class="app" id="question-app"><div class="app-bar"><div class="app-title"><span class="app-logo">RAG</span>Local RAG Assistant</div><div class="status">● API en ligne</div></div><div class="app-body"><div class="main-chat" data-layout-allow-overlap><div class="kicker">03 · Question utilisateur</div><h2 style="margin-top:16px;font-size:48px">Interroger la documentation indexée.</h2><div class="composer" style="margin-top:160px"><div class="input"><span id="typed-question"></span><span class="cursor"></span></div><div class="send" id="question-send">Envoyer →</div></div></div><div class="side-metrics"><div class="metric">Réponse<b>locale</b></div><div class="metric">Sources<b>visibles</b></div><div class="metric">Index<b>Chroma</b></div><div class="metric">Modèle<b>GGUF</b></div></div></div></div></div></section>
+  <section class="scene" id="retrieval"><div class="scene-inner"><div class="arch-head"><div><div class="kicker">04 · Recherche</div><h2>Retrouver les passages pertinents.</h2></div><p class="copy">La requête traverse les composants un à un : aucun schéma figé, le flux se construit sous vos yeux.</p></div><div class="diagram"><div class="machine"></div><div class="machine-label">Machine locale</div><svg class="paths" viewBox="0 0 1728 640" aria-hidden="true"><path class="path retrieval" id="p-user-ui" d="M280 321 H335"></path><path class="path retrieval" id="p-ui-api" d="M545 321 H625"></path><path class="path retrieval" id="p-api-chroma" d="M835 321 H900 Q925 321 925 296 V176 Q925 151 950 151"></path><path class="path retrieval" id="p-chroma-embed" d="M1160 151 H1260"></path><path class="path return" id="p-return" d="M1260 185 H1190 Q925 185 925 225 V250 Q925 321 835 321"></path><path class="path generation" id="p-api-llama" d="M835 321 H900 Q925 321 925 346 V476 Q925 501 950 501"></path><path class="path generation" id="p-llama-gguf" d="M1160 501 H1260"></path></svg><div class="arch-node" id="n-user"><strong>Utilisateur</strong><small>Navigateur local</small></div><div class="arch-node front" id="n-ui"><strong>Interface web</strong><small>HTML + JavaScript</small></div><div class="arch-node back" id="n-api"><strong>FastAPI</strong><small>Orchestration RAG</small></div><div class="arch-node data" id="n-chroma"><strong>ChromaDB</strong><small>Index vectoriel local</small></div><div class="arch-node back" id="n-embed"><strong>sentence-transformers</strong><small>Embeddings locaux</small></div><div class="arch-node back" id="n-llama"><strong>llama-server</strong><small>llama.cpp local</small></div><div class="arch-node" id="n-gguf"><strong>Modèle GGUF</strong><small>Fichier local</small></div><div class="packet" id="packet"></div><div class="legend"><span><i class="blue"></i>Recherche vectorielle</span><span><i class="orange"></i>Génération locale</span></div><div class="local-badge">Aucun service distant</div></div></div></section>
+  <section class="scene" id="generation"><div class="scene-inner"><div class="arch-head"><div><div class="kicker">05 · Génération locale</div><h2>Le contexte alimente le modèle local.</h2></div><p class="copy">FastAPI assemble le contexte et le prompt, puis llama.cpp interroge le modèle GGUF.</p></div><div class="diagram" id="generation-diagram"></div></div></section>
+  <section class="scene" id="proof"><div class="scene-inner"><div id="proof-copy"><div class="kicker">06 · Preuve finale</div><h2>Une réponse. Une source vérifiable.</h2><p class="copy">Le résultat revient dans l’interface avec le passage qui l’a justifié.</p><div class="verified"><i>✓</i>Pipeline RAG local, orchestré en Python</div></div><div class="app" id="proof-app"><div class="app-bar"><div class="app-title"><span class="app-logo">RAG</span>Local RAG Assistant</div><div class="status">● Réponse générée</div></div><div class="app-body"><div class="bubble user">Quel est l’identifiant de validation unique du projet fictif ?</div><div class="bubble bot"><div class="answer">ORION-742</div><div class="source">Source vérifiée · document.pdf p.1</div></div></div></div></div></section>
+  <div class="progress"><div class="progress-fill"></div></div>
+  <audio id="sfx-type" data-start="9.35" data-duration="0.25" data-track-index="11" data-volume="0.38" src="assets/sfx/keyboard/keypress-006.wav"></audio>
+  <audio id="sfx-send" data-start="11.55" data-duration="0.01" data-track-index="12" data-volume="0.52" src="assets/sfx/interface/click_003.ogg"></audio>
+  <audio id="sfx-proof" data-start="21.15" data-duration="0.11" data-track-index="13" data-volume="0.46" src="assets/sfx/interface/drop_001.ogg"></audio>
+  <script>
+    const retrievalDiagram = document.querySelector('#retrieval .diagram');
+    document.getElementById('generation-diagram').innerHTML = retrievalDiagram.innerHTML;
+    document.querySelectorAll('#generation-diagram [id]').forEach((el) => { el.id = `g-${el.id}`; });
+    const tl = gsap.timeline({ paused: true });
+    const q = 'Quel est l’identifiant de validation unique du projet fictif ?';
+    const typed = { count: 0 };
+    gsap.set('#hook', { opacity: 1 });
+    gsap.set('#ingest, #indexing, #question, #retrieval, #generation, #proof', { opacity: 0 });
+    gsap.set('#generation-diagram .arch-node, #generation-diagram .machine, #generation-diagram .machine-label, #generation-diagram .legend, #generation-diagram .local-badge', { opacity: 1 });
+    gsap.set('#generation-diagram .path.retrieval, #generation-diagram .path.return', { strokeDashoffset: 0, opacity: .3 });
+    gsap.set('#generation-diagram .path.generation', { strokeDashoffset: 1200, opacity: 1 });
+    tl.from('#hook-app', { y: 22, duration: .55, ease: 'power2.out' }, .1)
+      .from('#hook .micro-flow span, #hook .micro-flow i', { opacity: 0, x: -12, stagger: .09, duration: .35, ease: 'power2.out' }, .45)
+      .to('#hook', { opacity: 0, duration: .35 }, 2.7).to('#ingest', { opacity: 1, duration: .35 }, 2.7)
+      .from('#ingest .scene-copy > *', { opacity: 0, y: 20, stagger: .09, duration: .4 }, 3.05).from('#ingest .workspace', { opacity: 0, x: 40, duration: .45 }, 3.05).from('#ingest .pdf', { opacity: 0, y: 28, rotation: -4, duration: .45 }, 3.45).from('#ingest .flow-arrow', { scaleX: 0, duration: .45, ease: 'power2.inOut' }, 3.85).from('#ingest .chunk', { opacity: 0, x: -36, stagger: .28, duration: .45, ease: 'power2.out' }, 4.2)
+      .to('#ingest', { opacity: 0, duration: .35 }, 5.72).to('#indexing', { opacity: 1, duration: .35 }, 5.72)
+      .from('#indexing .scene-copy > *', { opacity: 0, y: 20, stagger: .08, duration: .35 }, 6.05).from('#indexing .workspace', { opacity: 0, x: 40, duration: .4 }, 6.05).from('#indexing .vector', { opacity: 0, scale: .5, stagger: .18, duration: .4, ease: 'back.out(1.5)' }, 6.35).from('#indexing .flow-arrow', { scaleX: 0, duration: .4 }, 7.08).from('#indexing .db', { opacity: 0, x: 32, duration: .5, ease: 'power2.out' }, 7.35)
+      .to('#indexing', { opacity: 0, duration: .35 }, 8.72).to('#question', { opacity: 1, duration: .35 }, 8.72)
+      .from('#question-app', { y: 30, scale: .97, duration: .5, ease: 'power2.out' }, 9.0).to(typed, { count: q.length, duration: 1.85, ease: 'none', onUpdate: () => { document.getElementById('typed-question').textContent = q.slice(0, Math.round(typed.count)); } }, 9.35).to('.cursor', { opacity: 0, duration: .16, yoyo: true, repeat: 5 }, 9.55).to('#question-send', { scale: .94, duration: .12, yoyo: true, repeat: 1 }, 11.52)
+      .to('#question', { opacity: 0, duration: .35 }, 11.72).to('#retrieval', { opacity: 1, duration: .35 }, 11.72)
+      .from('#retrieval .arch-head > *', { opacity: 0, y: 18, stagger: .12, duration: .4 }, 12.05).from('#retrieval .diagram', { opacity: 0, y: 22, duration: .45 }, 12.05)
+      .to('#retrieval #n-user', { opacity: 1, duration: .25 }, 12.45).to('#retrieval #p-user-ui', { strokeDashoffset: 0, duration: .38 }, 12.7).to('#retrieval #n-ui', { opacity: 1, duration: .25 }, 13.0).to('#retrieval #p-ui-api', { strokeDashoffset: 0, duration: .38 }, 13.25).to('#retrieval #n-api', { opacity: 1, duration: .25 }, 13.55).to('#retrieval #p-api-chroma', { strokeDashoffset: 0, duration: .55 }, 13.78).to('#retrieval #n-chroma', { opacity: 1, duration: .25 }, 14.25).to('#retrieval #p-chroma-embed', { strokeDashoffset: 0, duration: .42 }, 14.45).to('#retrieval #n-embed', { opacity: 1, duration: .25 }, 14.8).to('#retrieval #packet', { opacity: 1, x: 0, y: 0, duration: .01 }, 14.95).to('#retrieval #packet', { x: -330, duration: .4, ease: 'power1.inOut' }, 15.0).to('#retrieval #p-return', { strokeDashoffset: 0, duration: .7 }, 15.15).to('#retrieval #packet', { x: -600, y: 170, duration: .6, ease: 'power1.inOut' }, 15.45).to('#retrieval #packet', { opacity: 0, duration: .18 }, 16.08)
+      .to('#retrieval', { opacity: 0, duration: .35 }, 16.72).to('#generation', { opacity: 1, duration: .35 }, 16.72)
+      .from('#generation .arch-head > *', { opacity: 0, y: 18, stagger: .12, duration: .4 }, 17.05).from('#generation .diagram', { opacity: 0, y: 20, duration: .42 }, 17.05).to('#generation-diagram .path.generation', { strokeDashoffset: 0, stagger: .42, duration: .65, ease: 'power2.inOut' }, 17.65).from('#generation-diagram #g-n-llama, #generation-diagram #g-n-gguf', { scale: .9, duration: .4, stagger: .5, ease: 'back.out(1.4)' }, 18.25).to('#generation-diagram #g-packet', { opacity: 1, x: -310, y: 350, duration: .01 }, 19.1).to('#generation-diagram #g-packet', { x: 40, duration: .75, ease: 'power1.inOut', backgroundColor: '#f58220' }, 19.12).to('#generation-diagram #g-packet', { opacity: 0, duration: .18 }, 19.87)
+      .to('#generation', { opacity: 0, duration: .35 }, 20.72).to('#proof', { opacity: 1, duration: .35 }, 20.72)
+      .from('#proof-copy > *', { opacity: 0, y: 18, stagger: .1, duration: .42 }, 21.05).from('#proof-app', { opacity: 0, x: 50, duration: .5, ease: 'power2.out' }, 21.05).from('#proof-app .bubble.user', { opacity: 0, y: 14, duration: .35 }, 21.45).from('#proof-app .bubble.bot', { opacity: 0, y: 18, duration: .45, ease: 'power2.out' }, 21.9).from('#proof-app .answer', { scale: .9, duration: .4, ease: 'back.out(1.5)' }, 22.2).from('#proof-app .source', { opacity: 0, y: 10, duration: .35 }, 22.55).from('.verified i', { scale: 0, duration: .4, ease: 'back.out(1.8)' }, 22.8)
+      .fromTo('.progress-fill', { scaleX: 0 }, { scaleX: 1, duration: 25, ease: 'none' }, 0);
+    window.__timelines.master = tl;
+  </script>
+</main>
+</body>
+</html>
