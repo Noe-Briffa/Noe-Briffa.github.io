@@ -18,7 +18,7 @@
 - Storyboards et briefs présents dans chaque dossier.
 - Rendu polished entièrement silencieux : aucune musique, voix off ou effet sonore.
 - Scène d’indexation clarifiée : chaque passage affiche son vecteur numérique, puis son ajout explicite à une entrée ChromaDB.
-- Scène finale ajoutée sur l’apprentissage : vrai code de similarité cosinus et MMR, compétences acquises et distinction explicite entre les embeddings fournis par sentence-transformers et la logique RAG codée à la main.
+- Scène finale ajoutée sur l’apprentissage : synthèse visuelle des notions réellement mobilisées, sans extrait de code ni formulation promotionnelle.
 
 ## Vérifications effectuées
 
@@ -26,7 +26,7 @@
 - `hyperframes check` : OK ; runtime, motion et contraste conformes.
 - Contrôle de la composition à 9 instants, centré sur l’indexation et la nouvelle conclusion.
 - Contrôle du MP4 final toutes les 2 secondes : 27 images examinées, plus 6 captures rapprochées de la flèche et de la conclusion.
-- Décodage intégral : à refaire après le retiming. Cible : H.264, 1920×1080, 30 fps, 1 350 images, 45,000 s ; aucune piste audio.
+- Décodage intégral : OK après retiming. H.264, 1920×1080, 30 fps, 1 350 images, 45,000 s ; aucune piste audio.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -46,10 +46,10 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 - Le trait de retour du contexte est masqué jusqu’à sa vraie étape ; recherche et génération partagent désormais un schéma continu.
 - La preuve finale distingue clairement la question utilisateur et la réponse de l’« Assistant local ».
 - L’indexation ne repose plus sur des points abstraits : trois passages, leurs vecteurs et leurs enregistrements ChromaDB restent lisibles dans le même plan.
-- Les sept scènes et leurs animations ont été ralenties proportionnellement, sans ajout de contenu.
+- Les sept scènes et leurs animations ont été accélérées proportionnellement pour passer de 53 à 45 secondes, sans supprimer de contenu.
 - La flèche « Ajout à l’index » dispose maintenant de sa propre colonne et d’une marge visible avant ChromaDB.
 - La conclusion valorise l’apprentissage réel sans laisser entendre que les modèles d’embeddings ou ChromaDB ont été réimplémentés.
-- Le rendu final a été contrôlé via 33 images réparties sur toute la durée et décodé intégralement sans erreur.
+- Le rendu final a été contrôlé via une planche de 9 images réparties sur toute la durée et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
 
