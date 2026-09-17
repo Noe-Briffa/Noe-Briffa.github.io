@@ -6,23 +6,23 @@
 - Projet colorisation conservé.
 - Étude Local RAG ajoutée avec objectif, flux, architecture, stack, difficulté réelle et limites.
 - Capture UI et schéma d’architecture copiés dans `assets/local-rag/`.
-- Version polished intégrée par défaut dans la page.
-- Variante technique accessible depuis la page pour comparaison.
+- Version polished de 25 secondes intégrée comme unique vidéo publique.
+- Variante technique conservée dans l’archive locale, sans lien depuis la page.
 - Aucun nom d’entreprise, document métier ou chemin local conservé dans les fichiers publiables.
 
 ## Vidéos produites
 
-- `brag-output/local-rag-polished/brag.mp4` — 20 s, 1920×1080, 30 fps.
+- `brag-output/local-rag-polished/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - `brag-output/local-rag-technical/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - Posters extraits et intégrés comme première frame.
 - Storyboards et briefs présents dans chaque dossier.
-- Rendus silencieux : aucune musique dont les droits de redistribution seraient ambigus.
+- Rendu polished sans musique ni voix off, avec trois effets CC0 discrets.
 
 ## Vérifications effectuées
 
-- `hyperframes lint` : OK pour les deux compositions.
-- `hyperframes check` : OK pour les deux compositions.
-- `hyperframes keyframes` et snapshots : OK.
+- `hyperframes lint` : OK, 0 erreur et 0 warning pour la composition polished.
+- `hyperframes check` : OK ; runtime, motion et contraste conformes.
+- `hyperframes keyframes` et sept snapshots ciblés : OK.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -38,11 +38,11 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 
 ## Clôture de cette passe
 
-- La version polished est conservée comme vidéo principale ; la version technique reste accessible depuis la page.
-- Les deux rendus ont été regardés via leurs planches de snapshots et validés par Hyperframes.
+- La version polished remplace l’ancien montage et devient l’unique vidéo visible sur la page.
+- Le rendu final a été contrôlé via sa planche de sept images clés et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
 
 ## Point d’attention
 
-Le dossier `brag-output/*/composition/` reste local et ignoré ; les briefs, storyboards, posters et rendus finaux sont conservés dans Git.
+La composition polished minimale est désormais suivie dans Git pour rendre le montage reproductible ; les snapshots et rendus intermédiaires restent ignorés.

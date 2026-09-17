@@ -8,6 +8,9 @@ node_modules/
 brag-output/*/composition/
 brag-output/*/tmp/
 brag-output/**/*.wav
+brag-output/**/brag-v2.*
+brag-output/**/brag-final.mp4
+brag-output/**/review-v2/
 
 # Local editor and OS files
 .vscode/
