@@ -9,7 +9,7 @@ Create a technical 25-second portfolio video making the manually orchestrated RA
 - Format: landscape, 1920x1080, 25 seconds
 
 ## Source material
-- Project root: `F:/Dev/09- Business/POC_IA_Locale/DEV`
+- Project root: source project (local path intentionally omitted)
 - Real UI: `assets/img/local-rag-demo.jpg`
 - Real architecture: `assets/img/architecture.png`
 - Real functions referenced: `extract_pages_from_pdf`, `chunk_text`, `retrieve_topk`, `format_context`

@@ -9,7 +9,7 @@ Create a polished 20-second portfolio video showing a real local PDF RAG flow an
 - Format: landscape, 1920x1080, 20 seconds
 
 ## Source material
-- Project root: `F:/Dev/09- Business/POC_IA_Locale/DEV`
+- Project root: source project (local path intentionally omitted)
 - Real UI: `assets/img/local-rag-demo.jpg`
 - Real architecture: `assets/img/architecture.png`
 - Product: Local RAG Assistant
