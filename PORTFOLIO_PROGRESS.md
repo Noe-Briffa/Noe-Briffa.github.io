@@ -16,7 +16,8 @@
 - `brag-output/local-rag-technical/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - Posters extraits et intégrés comme première frame.
 - Storyboards et briefs présents dans chaque dossier.
-- Rendu polished sans musique ni voix off, avec quatre effets CC0 discrets.
+- Rendu polished sans musique ni voix off, avec treize accents CC0 répartis dès l’accroche.
+- Scène d’indexation clarifiée : chaque passage affiche son vecteur numérique, puis son ajout explicite à une entrée ChromaDB.
 
 ## Vérifications effectuées
 
@@ -26,7 +27,8 @@
 - Contrôle renforcé de la composition : 25 images globales, 31 images du flux recherche/génération et 17 images de la preuve finale, soit 73 images examinées.
 - Contrôle renforcé du MP4 final aux mêmes 73 instants : OK, sans écran vide, chemin anticipé, saut ni élément fantôme.
 - Décodage intégral : OK. H.264, 1920×1080, 30 fps, 750 images, 25,000 s ; audio AAC stéréo 48 kHz.
-- Quatre événements sonores détectés aux temps prévus ; crête maximale à −7,13 dBFS, sans saturation.
+- Treize événements sonores détectés de 0,45 s à 21,15 s : accroche, PDF, chunks, vecteurs, index, saisie, envoi, génération et réponse.
+- Crête maximale à −4,58 dBFS, sans saturation.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -45,6 +47,8 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 - La version polished remplace l’ancien montage et devient l’unique vidéo visible sur la page.
 - Le trait de retour du contexte est masqué jusqu’à sa vraie étape ; recherche et génération partagent désormais un schéma continu.
 - La preuve finale distingue clairement la question utilisateur et la réponse de l’« Assistant local ».
+- L’indexation ne repose plus sur des points abstraits : trois passages, leurs vecteurs et leurs enregistrements ChromaDB restent lisibles dans le même plan.
+- Le sound design accompagne désormais aussi les 16 premières secondes au lieu de commencer à la génération.
 - Le rendu final a été contrôlé via 73 images réparties sur trois séries et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
