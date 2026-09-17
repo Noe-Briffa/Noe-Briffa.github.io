@@ -1,0 +1,1 @@
+J’ai étudié le RAG puis codé son orchestration : extraction PDF, embeddings, MMR, contexte et génération locale avec llama.cpp.

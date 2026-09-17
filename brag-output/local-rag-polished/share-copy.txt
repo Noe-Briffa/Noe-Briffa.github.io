@@ -1,0 +1,1 @@
+J’ai construit un RAG local en Python : PDF, recherche vectorielle, contexte et réponse sourcée, sans framework RAG clé en main.
