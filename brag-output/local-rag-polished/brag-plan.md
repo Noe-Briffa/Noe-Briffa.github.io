@@ -15,7 +15,7 @@ Montrer que le projet est une compréhension concrète du RAG : l’orchestratio
 - La réponse revient avec la source `document.pdf`.
 
 ## Outro / punchline
-« Pipeline RAG local, orchestré en Python. »
+« J’ai appris le RAG en l’implémentant. »
 
 ## User flow worth showing
 Question → recherche des passages → réponse locale et source.
@@ -26,7 +26,7 @@ Question → recherche des passages → réponse locale et source.
 - Interpretation: mouvements fluides, peu de texte, preuve visuelle avant les slogans.
 
 ## Format: landscape — 1920x1080
-## Duration: 45 seconds
+## Duration: 53 seconds
 
 ## Visual identity (from the project)
 - Background: #f4f1e9
@@ -64,5 +64,8 @@ Sans changer d’écran, le titre bascule vers « Génération locale », FastAP
 
 ### Scene 7 — Preuve — 37,3 à 45s
 Conversation lisible : question utilisateur, avatar « Assistant local », réponse en phrase naturelle, valeur `ORION-742` mise en évidence et source `document.pdf p.1`.
+
+### Scene 8 — Apprentissage — 45 à 53s
+Le vrai code de similarité cosinus et du score MMR apparaît avec quatre acquis : recherche vectorielle, similarité cosinus, sélection MMR et contexte sourcé. La scène précise que sentence-transformers calcule les embeddings, tandis que la logique de sélection, le contexte et l’orchestration RAG ont été codés à la main.
 
 **Audio summary:** vidéo entièrement silencieuse.
