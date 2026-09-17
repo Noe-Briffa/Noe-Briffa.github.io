@@ -6,13 +6,13 @@
 - Projet colorisation conservé.
 - Étude Local RAG ajoutée avec objectif, flux, architecture, stack, difficulté réelle et limites.
 - Capture UI et schéma d’architecture copiés dans `assets/local-rag/`.
-- Version polished de 53 secondes intégrée comme unique vidéo publique.
+- Version polished de 45 secondes intégrée comme unique vidéo publique.
 - Variante technique conservée dans l’archive locale, sans lien depuis la page.
 - Aucun nom d’entreprise, document métier ou chemin local conservé dans les fichiers publiables.
 
 ## Vidéos produites
 
-- `brag-output/local-rag-polished/brag.mp4` — 53 s, 1920×1080, 30 fps, sans piste audio.
+- `brag-output/local-rag-polished/brag.mp4` — 45 s, 1920×1080, 30 fps, sans piste audio.
 - `brag-output/local-rag-technical/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - Posters extraits et intégrés comme première frame.
 - Storyboards et briefs présents dans chaque dossier.
@@ -26,7 +26,7 @@
 - `hyperframes check` : OK ; runtime, motion et contraste conformes.
 - Contrôle de la composition à 9 instants, centré sur l’indexation et la nouvelle conclusion.
 - Contrôle du MP4 final toutes les 2 secondes : 27 images examinées, plus 6 captures rapprochées de la flèche et de la conclusion.
-- Décodage intégral : OK. H.264, 1920×1080, 30 fps, 1 590 images, 53,000 s ; aucune piste audio.
+- Décodage intégral : à refaire après le retiming. Cible : H.264, 1920×1080, 30 fps, 1 350 images, 45,000 s ; aucune piste audio.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
