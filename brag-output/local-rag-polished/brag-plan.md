@@ -42,7 +42,7 @@ J’ai construit un RAG local en Python : PDF, recherche vectorielle, contexte e
 ## Audio direction
 - Role: ponctuation discrète des interactions.
 - Music: aucune.
-- SFX posture: trois sons CC0 du pack Brag (saisie, envoi, révélation finale), à faible volume.
+- SFX posture: quatre sons CC0 du pack Brag (saisie, envoi, passage à la génération, révélation finale), à faible volume.
 - Restraint rule: le son confirme l’action sans prendre le dessus sur la lisibilité.
 
 ## Storyboard
@@ -60,12 +60,12 @@ Les passages deviennent des embeddings, puis rejoignent un index ChromaDB local.
 La question de démonstration neutre est saisie dans l’interface reconstruite en HTML.
 
 ### Scene 5 — Recherche — 12 à 17s
-Le schéma se construit progressivement : Utilisateur → Interface web → FastAPI → ChromaDB → sentence-transformers, puis le contexte revient vers FastAPI.
+Un schéma unique se construit progressivement : Utilisateur → Interface web → FastAPI → ChromaDB → sentence-transformers. Le retour vert n’apparaît qu’une fois les passages sélectionnés et porte le libellé « Contexte sélectionné ».
 
 ### Scene 6 — Génération locale — 17 à 21s
-Le chemin FastAPI → llama-server → modèle GGUF est révélé et animé en orange.
+Sans changer d’écran, le titre bascule vers « Génération locale », FastAPI pulse et le même indicateur devient orange avant de suivre FastAPI → llama-server → modèle GGUF.
 
 ### Scene 7 — Preuve — 21 à 25s
-Gros plan sur la question, la réponse `ORION-742` et la source `document.pdf p.1`.
+Conversation lisible : question utilisateur, avatar « Assistant local », réponse en phrase naturelle, valeur `ORION-742` mise en évidence et source `document.pdf p.1`.
 
-**Audio summary:** trois accents CC0 discrets, sans voix off ni musique.
+**Audio summary:** quatre accents CC0 discrets, sans voix off ni musique.

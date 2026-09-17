@@ -16,13 +16,14 @@
 - `brag-output/local-rag-technical/brag.mp4` — 25 s, 1920×1080, 30 fps.
 - Posters extraits et intégrés comme première frame.
 - Storyboards et briefs présents dans chaque dossier.
-- Rendu polished sans musique ni voix off, avec trois effets CC0 discrets.
+- Rendu polished sans musique ni voix off, avec quatre effets CC0 discrets.
 
 ## Vérifications effectuées
 
 - `hyperframes lint` : OK, 0 erreur et 0 warning pour la composition polished.
 - `hyperframes check` : OK ; runtime, motion et contraste conformes.
-- `hyperframes keyframes` et sept snapshots ciblés : OK.
+- `hyperframes keyframes` : OK.
+- Contrôle renforcé de la composition : 25 images globales, 31 images du flux recherche/génération et 17 images de la preuve finale, soit 73 images examinées.
 - Métadonnées vidéo : OK, durées et dimensions conformes.
 - Serveur HTTP local : index, images et vidéos retournent HTTP 200.
 - Capture finale : `portfolio-preview-rag.png`.
@@ -39,6 +40,8 @@ Le dépôt n’a aucun remote et rien n’a été poussé.
 ## Clôture de cette passe
 
 - La version polished remplace l’ancien montage et devient l’unique vidéo visible sur la page.
+- Le trait de retour du contexte est masqué jusqu’à sa vraie étape ; recherche et génération partagent désormais un schéma continu.
+- La preuve finale distingue clairement la question utilisateur et la réponse de l’« Assistant local ».
 - Le rendu final a été contrôlé via sa planche de sept images clés et décodé intégralement sans erreur.
 - Le portfolio a été vérifié sur un viewport réduit ; le schéma large conserve son défilement horizontal volontaire.
 - Le scan final, les chemins relatifs et l’état Git sont propres.
