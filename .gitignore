@@ -15,6 +15,8 @@ brag-output/**/brag-final-*.mp4
 brag-output/**/snapshots-*/
 brag-output/**/review-v2/
 brag-output/**/review-v3/
+brag-output/colorization-v2/brag-*.mp4
+brag-output/colorization-v2/snapshots-*/
 
 # Local editor and OS files
 .vscode/
