@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Noé Briffa, étudiant ingénieur en SSI : IA appliquée, automatisation, systèmes locaux et applications concrètes.">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Noé Briffa · Portfolio SSI et IA appliquée">
+  <meta property="og:description" content="Projets de vision par ordinateur, IA locale, systèmes de connaissances et application mobile.">
+  <meta property="og:image" content="portfolio-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noé Briffa · Portfolio SSI et IA appliquée">
+  <meta name="twitter:description" content="Projets de vision par ordinateur, IA locale, systèmes de connaissances et application mobile.">
+  <meta name="twitter:image" content="portfolio-preview.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Noé Briffa · Portfolio SSI et IA appliquée</title>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noé Briffa","jobTitle":"Étudiant ingénieur en sécurité des systèmes d'information","description":"Étudiant ingénieur en SSI, spécialisé dans l'IA appliquée, l'automatisation et les systèmes locaux."}
+  </script>
+  <style>
+    :root { --ink:#18211f; --muted:#65716d; --paper:#f4f1e9; --line:#d8d5ca; --accent:#b8e26f; --dark:#202b28; }
+     * { box-sizing:border-box; }
+     html { overflow-x:hidden; }
+     body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, sans-serif; line-height:1.55; }
+     main { width:100%; max-width:1160px; margin:auto; padding:28px clamp(22px,5vw,72px) 80px; }
+    nav { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:20px; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+    nav a { margin-left:18px; text-decoration:none; }
+    nav span:last-child { display:flex; flex-wrap:wrap; justify-content:flex-end; color:var(--muted); }
+    .hero { min-height:64vh; display:grid; grid-template-columns:1.1fr .9fr; gap:8vw; align-items:center; padding:72px 0 64px; }
+    .eyebrow { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { max-width:760px; margin:18px 0 24px; font-family:Georgia, serif; font-size:clamp(3.4rem,8vw,7.6rem); font-weight:400; letter-spacing:-.07em; line-height:.9; }
+    .lede { max-width:560px; color:var(--muted); font-size:1.13rem; }
+    .hero-card { background:var(--dark); color:#f7f3e9; padding:18px; transform:rotate(2deg); box-shadow:16px 16px 0 var(--accent); }
+    .triptych { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .triptych figure { margin:0; min-width:0; }
+    .triptych img { display:block; width:100%; aspect-ratio:1; object-fit:cover; filter:saturate(.9); }
+    .triptych figcaption { margin-top:9px; color:#c3ccc7; font-size:.66rem; line-height:1.3; }
+    .hero-card small { display:block; margin-top:18px; color:#c3ccc7; font-size:.8rem; }
+    section { border-top:1px solid var(--line); padding:58px 0; }
+    .section-grid { display:grid; grid-template-columns:.35fr 1fr; gap:7vw; }
+    .section-grid > * { min-width:0; }
+    h2 { margin:0; font-family:Georgia,serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; letter-spacing:-.05em; line-height:1; }
+    p { max-width:680px; }
+    .pipeline-diagram { width:100%; max-width:760px; margin:28px auto 0; overflow:hidden; border:1px solid var(--line); background:#fbfaf5; }
+    .pipeline-diagram svg { display:block; width:100%; height:auto; min-width:0; }
+    .pipeline-diagram .lane { fill:#eeeae0; stroke:var(--line); }
+    .pipeline-diagram .box { fill:var(--dark); stroke:var(--dark); }
+    .pipeline-diagram .box.model { fill:#496345; stroke:#496345; }
+    .pipeline-diagram .box.output { fill:#dcefb0; stroke:#b8d77a; }
+    .pipeline-diagram .label { fill:#f7f3e9; font:600 15px Inter,Arial,sans-serif; }
+    .pipeline-diagram .box.output + .label { fill:var(--ink); }
+    .pipeline-diagram .sub { fill:#6d756d; font:500 11px Inter,Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+    .pipeline-diagram .arrow { fill:none; stroke:#6d756d; stroke-width:2; marker-end:url(#flow-arrow); }
+    .pipeline-diagram .arrow.model { stroke:#6c9b54; }
+    .architecture-diagram { width:100%; max-width:900px; margin:28px auto 0; overflow:hidden; border:1px solid var(--line); background:#fbfaf5; }
+    .architecture-diagram svg { display:block; width:100%; height:auto; }
+    .architecture-diagram .boundary { fill:#f7f1e4; stroke:#d9a557; stroke-width:2; stroke-dasharray:8 6; }
+     .architecture-diagram .boundary-label { fill:#805117; font:600 14px Inter,Arial,sans-serif; letter-spacing:.04em; }
+    .architecture-diagram .node { stroke-width:2; }
+    .architecture-diagram .node.external { fill:#e9edf2; stroke:#8796a8; }
+    .architecture-diagram .node.frontend { fill:#d9f2f8; stroke:#42a9bf; }
+    .architecture-diagram .node.backend { fill:#dff4e9; stroke:#45a978; }
+    .architecture-diagram .node.messagebus { fill:#fff0d1; stroke:#e49a2d; }
+    .architecture-diagram .node.database { fill:#eee4ff; stroke:#8a55e8; }
+    .architecture-diagram .node.security { fill:#ffe3e8; stroke:#e35c75; }
+    .architecture-diagram .node.cloud { fill:#fff0d1; stroke:#e49a2d; }
+    .architecture-diagram .node-title { fill:#18211f; font:700 15px Inter,Arial,sans-serif; }
+    .architecture-diagram .node-sub { fill:#65716d; font:500 12px Inter,Arial,sans-serif; }
+    .architecture-diagram .edge { fill:none; stroke:#7b8992; stroke-width:2.2; marker-end:url(#rag-architecture-arrow); }
+    .architecture-diagram .edge.emphasis { stroke:#168b69; stroke-width:3; }
+    .architecture-diagram .edge.security { stroke:#df536c; stroke-dasharray:7 5; }
+    .architecture-diagram .edge.local { stroke:#8051d8; stroke-dasharray:7 5; }
+    .architecture-diagram .edge-label { fill:#65716d; font:500 11px Inter,Arial,sans-serif; }
+    .architecture-diagram .legend { fill:#18211f; font:600 14px Inter,Arial,sans-serif; }
+    .architecture-diagram .legend-dot { stroke-width:2; }
+    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); margin-top:30px; }
+    .metric { background:var(--paper); padding:22px; }
+    .metric strong { display:block; font-family:Georgia,serif; font-size:2rem; font-weight:400; }
+    .metric small { color:var(--muted); }
+    video { display:block; width:100%; background:#111; margin-top:26px; }
+    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+     a { color:var(--ink); text-underline-offset:4px; }
+     :focus-visible { outline:3px solid #4d6d2f; outline-offset:4px; }
+     .button { border:1px solid var(--ink); padding:11px 16px; text-decoration:none; font-size:.86rem; }
+    .button:hover, .button:focus-visible { background:var(--accent); }
+    .note { color:var(--muted); font-size:.9rem; }
+    footer { border-top:1px solid var(--line); padding-top:22px; color:var(--muted); font-size:.82rem; }
+    .project { scroll-margin-top:28px; }
+    .project + .project { margin-top:18px; }
+    .project-tag { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .rag-card { background:#17212b; color:#f7f3e9; padding:18px; box-shadow:16px 16px 0 #f58220; transform:rotate(-1.5deg); }
+    .rag-card img { display:block; width:100%; height:auto; }
+    .rag-card small { display:block; margin-top:14px; color:#cbd6dd; font-size:.8rem; }
+    .flow-list { display:grid; gap:10px; margin:26px 0 0; padding:0; list-style:none; counter-reset:flow; }
+    .flow-list li { counter-increment:flow; border-left:3px solid var(--accent); padding:10px 14px; background:#fbfaf5; }
+    .flow-list li::before { content:counter(flow, decimal-leading-zero); margin-right:12px; color:#4d6d2f; font:600 .75rem Inter, sans-serif; }
+    .stack { color:var(--muted); font-size:.9rem; }
+    .video-note { color:var(--muted); font-size:.9rem; }
+     .profile-intro { display:grid; grid-template-columns:1.15fr .85fr; gap:8vw; align-items:center; padding:58px 0 68px; border-bottom:1px solid var(--line); }
+     .profile-intro > *, .hero > * { min-width:0; }
+     .profile-intro > div, .hero > div { width:100%; }
+     .profile-intro h1, .profile-intro p, .hero h2, .hero p { width:100%; max-width:100%; overflow-wrap:anywhere; }
+     .profile-intro h1 { max-width:640px; margin:18px 0 24px; font-size:clamp(3.2rem,6.4vw,5.6rem); line-height:.94; letter-spacing:-.065em; }
+    .profile-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .profile-actions .button:first-child { background:var(--dark); color:#f7f3e9; }
+    .profile-actions .button:first-child:hover, .profile-actions .button:first-child:focus-visible { color:var(--ink); }
+    .profile-note { max-width:620px; margin-top:22px; color:var(--muted); font-size:.88rem; }
+    .profile-aside { padding:24px; border:1px solid var(--line); background:#fbfaf5; box-shadow:14px 14px 0 var(--accent); transform:rotate(-1deg); }
+    .profile-aside p { margin:0; }
+    .profile-kicker { display:block; margin-bottom:18px; color:#4d6d2f; font-size:.74rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .profile-list { display:grid; gap:16px; margin:0; padding:0; list-style:none; }
+     .profile-list li { padding-top:13px; border-top:1px solid var(--line); }
+    .profile-list strong { display:block; font-family:Georgia,serif; font-size:1.24rem; font-weight:400; }
+     .profile-list span { color:var(--muted); font-size:.86rem; }
+    .status-pill { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid #cbd7b5; background:#eef6df; color:#45652f; font-size:.78rem; font-weight:700; letter-spacing:.03em; }
+    .status-pill::before { content:""; width:7px; height:7px; border-radius:50%; background:#78a84b; }
+    .case-image { display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff; }
+    .case-image.graph { aspect-ratio:16/9; object-fit:cover; }
+    .second-brain-card { background:#17212b; color:#f7f3e9; padding:18px; box-shadow:16px 16px 0 #b8e26f; transform:rotate(1.2deg); }
+    .second-brain-card img { display:block; width:100%; height:auto; }
+    .second-brain-card small { display:block; margin-top:14px; color:#cbd6dd; font-size:.8rem; }
+    .case-columns { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:28px; }
+    .case-card { border:1px solid var(--line); background:#fbfaf5; padding:20px; }
+    .case-card strong { display:block; margin-bottom:7px; font-family:Georgia,serif; font-size:1.25rem; font-weight:400; }
+    .warungfit-card { position:relative; min-height:560px; overflow:hidden; background:#dfefff; padding:28px; box-shadow:16px 16px 0 #176b49; transform:rotate(-1deg); }
+    .warungfit-phone { position:relative; z-index:1; width:min(290px,82%); margin:0 auto; overflow:hidden; border:8px solid #17212b; border-radius:34px; background:#f8fafc; box-shadow:0 24px 50px rgba(23,33,43,.22); }
+    .warungfit-phone::before { content:""; display:block; width:76px; height:18px; margin:0 auto -18px; border-radius:0 0 12px 12px; background:#17212b; }
+    .warungfit-phone img { display:block; width:100%; aspect-ratio:1.35; object-fit:cover; }
+    .warungfit-screen { padding:18px; }
+    .warungfit-kicker { margin:0 0 5px; color:#547064; font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .warungfit-meal { margin:0; color:#17212b; font:700 1.35rem/1.1 Inter, sans-serif; }
+    .warungfit-score { display:flex; justify-content:space-between; align-items:end; margin:18px 0; padding:14px; border:1px solid #b9ddc8; border-radius:16px; background:#e8f7ee; }
+    .warungfit-score strong { color:#176b49; font:400 2.4rem/1 Georgia, serif; }
+    .warungfit-score span { color:#466055; font-size:.72rem; }
+    .warungfit-macros { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+    .warungfit-macros span { padding:9px 5px; border-radius:10px; background:#edf1f4; color:#4d5d66; font-size:.68rem; text-align:center; }
+    .warungfit-slip { position:absolute; z-index:2; right:10px; bottom:40px; width:190px; padding:15px; border:1px solid #17212b; background:#fffdf7; box-shadow:8px 8px 0 #f5a623; transform:rotate(4deg); }
+    .warungfit-slip strong { display:block; margin-bottom:6px; font-family:Georgia,serif; font-size:1.05rem; font-weight:400; }
+    .warungfit-slip span, .warungfit-card small { color:#65716d; font-size:.72rem; }
+    .warungfit-card > small { position:absolute; left:20px; bottom:16px; max-width:210px; }
+    .warungfit-banner { margin:0; overflow:hidden; border:1px solid #cddded; background:#eef6ff; box-shadow:14px 14px 0 #a9d4ff; transform:rotate(1deg); }
+    .warungfit-banner img { display:block; width:100%; height:auto; }
+    .warungfit-banner figcaption { padding:10px 14px; color:#526477; background:#f7fbff; font-size:.72rem; }
+    .warungfit-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:30px; }
+    .warungfit-shot { margin:0; min-width:0; }
+    .warungfit-shot img { display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff; box-shadow:0 8px 18px rgba(24,33,31,.08); }
+    .warungfit-shot figcaption { margin-top:9px; color:var(--muted); font-size:.74rem; line-height:1.35; }
+    .privacy-list { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:28px; background:var(--line); }
+    .privacy-item { background:#fbfaf5; padding:22px; }
+     .privacy-item h3 { margin:0 0 8px; font-family:Georgia,serif; font-size:1.3rem; font-weight:400; }
+     .privacy-item p { margin:0; color:var(--muted); font-size:.9rem; }
+     .skip-link { position:absolute; left:16px; top:-48px; z-index:2; padding:10px 14px; background:var(--dark); color:#f7f3e9; }
+     .skip-link:focus { top:16px; }
+     .section-intro { max-width:720px; margin-bottom:30px; }
+     .section-intro p { color:var(--muted); }
+     .project-index { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+     .project-index a { display:flex; min-height:190px; flex-direction:column; justify-content:space-between; padding:22px; border:1px solid var(--line); background:#fbfaf5; text-decoration:none; transition:transform .2s ease, background .2s ease; }
+     .project-index a:hover, .project-index a:focus-visible { background:#eef6df; transform:translateY(-3px); }
+     .project-index strong { max-width:13ch; font-family:Georgia,serif; font-size:1.8rem; font-weight:400; line-height:1; }
+     .project-index span { color:var(--muted); font-size:.82rem; }
+     .project-index small { color:#4d6d2f; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+     .project-title { max-width:760px; margin:18px 0 24px; font-family:Georgia,serif; font-size:clamp(3rem,7vw,6.4rem); font-weight:400; letter-spacing:-.07em; line-height:.9; }
+     .project-meta { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:20px; color:var(--muted); font-size:.82rem; }
+     .project-meta span + span::before { content:"·"; margin-right:18px; color:#9da59e; }
+     .contact-panel { display:flex; align-items:end; justify-content:space-between; gap:30px; }
+     .contact-panel h2 { max-width:12ch; }
+     .contact-panel p { margin:0; }
+      @media (max-width:760px) { body { width:100vw; } main { width:100vw; max-width:100vw; } nav { align-items:flex-start; gap:14px; } nav span:last-child { justify-content:flex-start; row-gap:8px; } .profile-intro, .hero { display:block; max-width:calc(100vw - 32px); } .profile-intro, .profile-intro > div, .profile-intro > aside { width:calc(100vw - 32px); max-width:calc(100vw - 32px); } .profile-intro > div, .profile-intro > aside, .hero > * { max-width:100%; } .section-grid { grid-template-columns:1fr; } .profile-intro { padding:48px 0 56px; } .hero { padding:40px 0 48px; } .profile-intro h1, h1 { font-size:clamp(2.5rem,10vw,3.8rem); line-height:.96; } .project-title { font-size:clamp(2.75rem,11vw,4.8rem); line-height:.94; } .hero-card, .warungfit-card, .warungfit-banner { max-width:480px; margin:10px auto 0; } .metrics { grid-template-columns:1fr; } .privacy-list, .project-index { grid-template-columns:1fr; } .contact-panel { display:block; } }
+     @media (max-width:520px) { main { padding-right:16px; padding-left:16px; } nav { flex-direction:column; padding-bottom:16px; } nav span:last-child { width:100%; gap:8px 14px; } nav span:last-child a { margin-left:0; } .triptych { grid-template-columns:repeat(3,1fr); gap:5px; } .triptych img { aspect-ratio:1; } .triptych figcaption { font-size:.58rem; } .hero-card, .warungfit-card, .warungfit-banner, .profile-aside { transform:none; } .hero-card, .warungfit-card, .warungfit-banner { box-shadow:8px 8px 0 var(--accent); } .pipeline-diagram { overflow-x:auto; } .pipeline-diagram svg { min-width:640px; } .architecture-diagram { overflow-x:auto; } .architecture-diagram svg { min-width:760px; } .warungfit-gallery { grid-template-columns:1fr; } .profile-actions, .contact-panel .links { flex-direction:column; align-items:stretch; } .profile-actions .button, .contact-panel .button { text-align:center; } }
+     @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; transition:none !important; animation:none !important; } .project-index a, .hero-card, .rag-card, .second-brain-card, .warungfit-card, .warungfit-banner, .profile-aside, .warungfit-slip { transform:none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <main>
+    <nav aria-label="Navigation principale"><span>Noé Briffa / Portfolio technique</span><span><a href="#a-propos">À propos</a><a href="#projets">Projets</a><a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a><a href="#contact">Contact</a></span></nav>
+    <div id="contenu">
+    <section id="a-propos" class="profile-intro">
+      <div>
+        <div class="eyebrow">Recherche de stage · Été 2027</div>
+        <h1>SSI et IA appliquée.</h1>
+        <p class="lede">Étudiant en Master SSI à l’UTT.<br>Je cherche un stage pour 2027.</p>
+        <p class="profile-note">Python, IA appliquée et automatisation avec UiPath.</p>
+        <div class="profile-actions"><a class="button" href="assets/CV.pdf" target="_blank" rel="noopener">Télécharger mon CV</a><a class="button" href="mailto:noebriffa37@gmail.com">Me contacter</a></div>
+      </div>
+       <aside class="profile-aside" aria-label="Repères de profil">
+         <span class="profile-kicker">Repères</span>
+        <ul class="profile-list">
+           <li><strong>Master SSI · 5e année</strong><span>Formation en cours à l’UTT</span></li>
+          <li><strong>Python · IA appliquée</strong><span>Projets personnels et cours de machine learning</span></li>
+           <li><strong>RPA · UiPath</strong><span>Stage à la DRHAT · besoins et projets</span></li>
+          <li><strong>Stage de fin d’études</strong><span>À partir de l’été 2027 · SSI et IA</span></li>
+         </ul>
+       </aside>
+     </section>
+    <section id="projets" aria-labelledby="projets-titre">
+      <div class="section-intro">
+        <h2 id="projets-titre">Projets sélectionnés</h2>
+        <p>Quatre projets autour de l’IA locale, du machine learning et du développement d’applications.</p>
+      </div>
+      <div class="project-index">
+        <a href="#rag"><small>Projet 01 · IA locale</small><strong>Local RAG Assistant</strong><span>Recherche documentaire et réponses sourcées en local.</span></a>
+        <a href="#second-brain"><small>Projet 02 · Système local</small><strong>Local Second Brain</strong><span>Pipeline local pour collecter, enrichir et relier des contenus.</span></a>
+        <a href="#warungfit"><small>Projet 03 · Application mobile</small><strong>WarungFit</strong><span>Estimation d’un repas, correction par l’utilisateur et suivi nutritionnel.</span></a>
+        <a href="#colorisation"><small>Projet 04 · Vision par ordinateur</small><strong>Colorisation d’images</strong><span>Modèle de deep learning, évaluation et limites.</span></a>
+      </div>
+    </section>
+    <article id="colorisation" class="project" aria-labelledby="colorisation-titre">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Projet personnel · Python · PyTorch</div>
+        <h2 id="colorisation-titre" class="project-title">Redonner une couleur plausible au gris.</h2>
+        <div class="project-meta"><span>Python · PyTorch</span><span>Vision par ordinateur</span><span>Évaluation sur données de test</span></div>
+        <p class="lede">Un modèle de deep learning colorise des images en niveaux de gris. La page présente le pipeline, l’architecture, l’entraînement et l’évaluation.</p>
+      </div>
+      <div class="hero-card"><div class="triptych" role="group" aria-label="Comparaison entre l’entrée, la prédiction et la référence"><figure><img src="assets/colorization/comparison_idx32_input.png" alt="Image en niveaux de gris"><figcaption>Entrée</figcaption></figure><figure><img src="assets/colorization/comparison_idx32_prediction.png" alt="Prédiction du modèle"><figcaption>Prédiction</figcaption></figure><figure><img src="assets/colorization/comparison_idx32_reference.png" alt="Référence couleur"><figcaption>Référence</figcaption></figure></div><small>Un même exemple, trois lectures.</small></div>
+    </header>
+    <section><div class="section-grid"><h2>Le pipeline</h2><div><p>Les images passent dans l’espace CIELAB. Le modèle reçoit la luminance L et prédit les canaux chromatiques a et b. Un U-Net léger, enrichi par une attention CBAM, reconstruit ensuite l’image colorisée.</p><div class="pipeline-diagram"><svg viewBox="0 0 900 340" role="img" aria-labelledby="flow-title flow-desc"><title id="flow-title">Pipeline de colorisation</title><desc id="flow-desc">L’image grise est convertie en CIELAB. Le canal L entre dans U-Net avec CBAM, qui prédit les canaux a et b. Le canal L et les canaux a et b sont recombinés pour produire une image RGB colorisée.</desc><defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6d756d"></path></marker></defs><rect class="lane" x="18" y="24" width="864" height="60" rx="12"></rect><text class="sub" x="36" y="59">Prétraitement</text><rect class="box" x="168" y="41" width="140" height="30" rx="7"></rect><text class="label" x="238" y="61" text-anchor="middle">Image gris</text><path class="arrow" d="M 308 56 H 360"></path><rect class="box" x="360" y="41" width="154" height="30" rx="7"></rect><text class="label" x="437" y="61" text-anchor="middle">Conversion CIELAB</text><path class="arrow" d="M 514 56 H 566"></path><rect class="box" x="566" y="41" width="98" height="30" rx="7"></rect><text class="label" x="615" y="61" text-anchor="middle">Canal L</text><rect class="lane" x="18" y="108" width="864" height="100" rx="12"></rect><text class="sub" x="36" y="143">Modèle</text><path class="arrow model" d="M 615 71 V 158 H 550"></path><rect class="box model" x="380" y="158" width="170" height="34" rx="8"></rect><text class="label" x="465" y="180" text-anchor="middle">U-Net + CBAM</text><path class="arrow model" d="M 550 175 H 590"></path><rect class="box model" x="590" y="158" width="154" height="34" rx="8"></rect><text class="label" x="667" y="180" text-anchor="middle">Canaux a/b</text><rect class="lane" x="18" y="232" width="864" height="70" rx="12"></rect><text class="sub" x="36" y="269">Reconstruction</text><path class="arrow model" d="M 615 71 V 250"></path><path class="arrow model" d="M 667 192 V 250"></path><rect class="box model" x="590" y="250" width="152" height="34" rx="8"></rect><text class="label" x="666" y="272" text-anchor="middle">Recomposition Lab</text><path class="arrow model" d="M 742 267 H 790"></path><rect class="box output" x="790" y="250" width="82" height="34" rx="8"></rect><text class="label" x="831" y="272" text-anchor="middle">RGB</text></svg></div></div></div></section>
+    <section><div class="section-grid"><h2>Mesurer avant de montrer</h2><div><p>Les résultats ci-dessous viennent d’une évaluation indépendante sur 100 images de test, sélectionnées avec la seed 42.</p><div class="metrics"><div class="metric"><strong>23,29</strong><small>PSNR moyen</small></div><div class="metric"><strong>0,940</strong><small>SSIM moyen</small></div><div class="metric"><strong>14,84</strong><small>DeltaE moyen</small></div></div><p class="note">Les couleurs sont plausibles, mais une image noir et blanc ne permet pas de garantir les couleurs historiques d’origine.</p></div></div></section>
+       <section><div class="section-grid"><h2 id="colorization-video-title">Voir le modèle travailler</h2><div><p>La vidéo résume le pipeline, l’architecture et les sorties sélectionnées.</p><video aria-labelledby="colorization-video-title" controls preload="metadata" poster="assets/colorization/bragv2.jpg"><source src="assets/colorization/bragv2.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn">Code source</a><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn/releases/tag/v1.0.0-portfolio">Checkpoint et Release</a></div></div></div></section>
+       <section><div class="section-grid"><h2>Ce que j’ai appris</h2><div><p>Ce projet m’a appris à séparer la qualité visuelle d’une colorisation de sa fidélité historique. J’ai aussi appris à présenter les métriques avec le jeu de test, la méthode et les limites qui les accompagnent.</p></div></div></section>
+    </article>
+
+    <article id="rag" class="project" aria-labelledby="rag-titre">
+      <header class="hero">
+        <div>
+          <div class="project-tag">Projet personnel · Python · IA locale</div>
+          <h2 id="rag-titre" class="project-title">Comprendre un RAG en le construisant.</h2>
+          <div class="project-meta"><span>Python · FastAPI</span><span>Recherche vectorielle</span><span>Exécution locale</span></div>
+           <p class="lede">Un assistant local répond à des questions sur un PDF en recherchant les passages pertinents avant d’envoyer le contexte à un modèle GGUF local.</p>
+        </div>
+        <div class="rag-card"><img src="assets/local-rag/local-rag-demo.jpg" alt="Interface du Local RAG Assistant montrant une réponse sourcée depuis document.pdf"><small>Une question, une réponse locale, une source vérifiable.</small></div>
+      </header>
+      <section><div class="section-grid"><h2>Le flux RAG</h2><div><p>Chaque étape est visible dans le code : le document est extrait, découpé, vectorisé puis recherché. Les passages sélectionnés sont formatés dans un contexte avant l’appel au modèle local.</p><ol class="flow-list"><li>Extraire les pages du PDF avec PyMuPDF.</li><li>Découper le texte avec une taille et un chevauchement contrôlés.</li><li>Créer les embeddings et les conserver dans ChromaDB.</li><li>Rechercher les candidats puis appliquer une sélection MMR.</li><li>Construire le prompt et générer une réponse sourcée avec llama.cpp.</li></ol></div></div></section>
+       <section><div class="section-grid"><h2>Le travail réalisé</h2><div><p>J’ai étudié le fonctionnement du retrieval augmented generation, puis écrit l’orchestration qui relie extraction, chunking, embeddings, recherche, contexte et génération.</p><p class="stack">Stack : Python · FastAPI · PyMuPDF · ChromaDB · sentence-transformers · llama.cpp · GGUF · CUDA · HTML/JavaScript.</p><p class="note">Les bibliothèques gèrent leurs responsabilités propres ; j’ai écrit l’enchaînement du pipeline.</p></div></div></section>
+       <section><div class="section-grid"><h2>Architecture locale</h2><div><div class="architecture-diagram"><svg viewBox="0 0 1080 520" role="img" aria-labelledby="rag-architecture-title rag-architecture-desc"><title id="rag-architecture-title">Architecture locale du Local RAG Assistant</title><desc id="rag-architecture-desc">Un utilisateur appelle une interface web locale, qui communique avec FastAPI. FastAPI extrait le document PDF, calcule et recherche des vecteurs dans ChromaDB avec sentence-transformers, puis envoie le contexte à llama-server et au modèle GGUF local.</desc><defs><marker id="rag-architecture-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7b8992"></path></marker></defs><rect class="boundary" x="250" y="54" width="790" height="408" rx="18"></rect><text class="boundary-label" x="276" y="82">Exécution locale</text><path class="edge emphasis" d="M 166 244 H 205"></path><text class="edge-label" x="178" y="228">HTTP local</text><path class="edge emphasis" d="M 356 244 H 395"></path><text class="edge-label" x="360" y="228">GET / POST</text><path class="edge" d="M 490 212 V 160 H 560"></path><text class="edge-label" x="505" y="148">indexe et recherche</text><path class="edge" d="M 720 160 H 775"></path><text class="edge-label" x="730" y="144">calcule les vecteurs</text><path class="edge" d="M 490 276 V 382"></path><text class="edge-label" x="504" y="340">extrait et découpe</text><path class="edge" d="M 490 276 V 332 H 560"></path><text class="edge-label" x="505" y="322">POST /completion</text><path class="edge" d="M 720 332 H 775"></path><text class="edge-label" x="730" y="316">charge le modèle</text><rect class="node external" x="30" y="210" width="136" height="68" rx="9"></rect><text class="node-title" x="98" y="240" text-anchor="middle">Utilisateur</text><text class="node-sub" x="98" y="258" text-anchor="middle">Navigateur local</text><rect class="node frontend" x="205" y="210" width="151" height="68" rx="9"></rect><text class="node-title" x="280" y="240" text-anchor="middle">Interface web</text><text class="node-sub" x="280" y="258" text-anchor="middle">HTML + JavaScript</text><rect class="node backend" x="395" y="210" width="190" height="68" rx="9"></rect><text class="node-title" x="490" y="240" text-anchor="middle">FastAPI</text><text class="node-sub" x="490" y="258" text-anchor="middle">API RAG :8000</text><rect class="node database" x="560" y="126" width="160" height="68" rx="9"></rect><text class="node-title" x="640" y="156" text-anchor="middle">ChromaDB</text><text class="node-sub" x="640" y="174" text-anchor="middle">Index vectoriel local</text><rect class="node backend" x="775" y="126" width="190" height="68" rx="9"></rect><text class="node-title" x="870" y="156" text-anchor="middle">sentence-transformers</text><text class="node-sub" x="870" y="174" text-anchor="middle">Embeddings locaux</text><rect class="node external" x="395" y="382" width="190" height="58" rx="9"></rect><text class="node-title" x="490" y="408" text-anchor="middle">Document PDF</text><text class="node-sub" x="490" y="426" text-anchor="middle">Source locale ingérée</text><rect class="node backend" x="560" y="298" width="160" height="68" rx="9"></rect><text class="node-title" x="640" y="328" text-anchor="middle">llama-server</text><text class="node-sub" x="640" y="346" text-anchor="middle">llama.cpp :8080</text><rect class="node external" x="775" y="298" width="190" height="68" rx="9"></rect><text class="node-title" x="870" y="328" text-anchor="middle">Modèle GGUF</text><text class="node-sub" x="870" y="346" text-anchor="middle">Fichier local ignoré</text><circle class="legend-dot" cx="46" cy="486" r="6" fill="#42a9bf" stroke="#42a9bf"></circle><text class="legend" x="60" y="490">Frontend</text><circle class="legend-dot" cx="150" cy="486" r="6" fill="#45a978" stroke="#45a978"></circle><text class="legend" x="164" y="490">Backend</text><circle class="legend-dot" cx="245" cy="486" r="6" fill="#8a55e8" stroke="#8a55e8"></circle><text class="legend" x="259" y="490">Base de données</text><circle class="legend-dot" cx="390" cy="486" r="6" fill="#8796a8" stroke="#8796a8"></circle><text class="legend" x="404" y="490">Externe</text></svg></div><p class="video-note">Le navigateur appelle FastAPI. L’API lit le document, interroge ChromaDB et envoie le contexte à llama.cpp, sans service distant.</p></div></div></section>
+       <section><div class="section-grid"><h2 id="rag-video-title">Voir le projet travailler</h2><div><p class="video-note">La vidéo suit le parcours complet : ingestion, indexation, recherche vectorielle, génération locale et réponse sourcée.</p><video aria-labelledby="rag-video-title" controls preload="metadata" poster="assets/local-rag/brag-polished.jpg"><source src="assets/local-rag/brag-polished.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc">Code source GitHub</a><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc#architecture">Architecture et documentation</a></div></div></div></section>
+       <section><div class="section-grid"><h2>Limites</h2><div><p>Ce POC est conçu pour un usage local : il ne fournit pas d’authentification, dépend d’un modèle GGUF obtenu séparément et n’est pas destiné à être exposé directement sur Internet. La qualité dépend du document, du modèle et des réglages de génération.</p></div></div></section>
+    </article>
+    <article id="second-brain" class="project" aria-labelledby="second-brain-titre">
+      <header class="hero">
+        <div>
+          <div class="project-tag">Projet personnel · Python · Système local</div>
+          <h2 id="second-brain-titre" class="project-title">Local Second Brain.</h2>
+          <div class="project-meta"><span>Python · MCP</span><span>Pipeline de jobs</span><span>Projet en développement</span></div>
+           <p class="lede">Je développe un système local qui transforme des contenus variés en notes enrichies, reliées et consultables.</p>
+          <p><span class="status-pill">Projet en développement · dépôt GitHub non public</span></p>
+        </div>
+        <div class="second-brain-card"><img src="assets/local-second-brain/obsidian-graph-anonymized.png" alt="Graphe anonymisé d’un système de connaissances local dans Obsidian"><small>Un graphe de connaissances local, présenté avec des données anonymisées.</small></div>
+      </header>
+       <section><div class="section-grid"><h2>Le principe</h2><div><p>Le projet fait passer des contenus hétérogènes par un pipeline local, puis les transforme en connaissances structurées. Il peut accueillir des liens, des vidéos ou d’autres sources sans dépendre d’un format unique.</p><div class="case-columns"><div class="case-card"><strong>Collecter</strong><span class="note">Synchroniser des contenus et conserver leur contexte.</span></div><div class="case-card"><strong>Enrichir</strong><span class="note">Transcrire, analyser et ajouter des métadonnées utiles.</span></div><div class="case-card"><strong>Relier</strong><span class="note">Construire des liens entre notes, concepts et projets.</span></div><div class="case-card"><strong>Explorer</strong><span class="note">Retrouver les idées dans une interface locale et un graphe.</span></div></div></div></div></section>
+      <section><div class="section-grid"><h2>Architecture</h2><div><div class="architecture-diagram"><svg viewBox="0 0 1120 560" role="img" aria-labelledby="brain-architecture-title brain-architecture-desc"><title id="brain-architecture-title">Architecture du Local Second Brain</title><desc id="brain-architecture-desc">Des sources variées sont synchronisées localement, passent dans un pipeline de jobs et un enrichissement, puis sont écrites dans Obsidian. Une interface locale, une API et un serveur MCP pilotent les traitements.</desc><defs><marker id="brain-architecture-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7b8992"></path></marker></defs><rect class="boundary" x="236" y="54" width="850" height="340" rx="18"></rect><text class="boundary-label" x="262" y="82">Traitements locaux</text><path class="edge emphasis" d="M 190 222 H 245"></path><text class="edge-label" x="196" y="206">collecter</text><path class="edge" d="M 425 222 H 475"></path><text class="edge-label" x="434" y="206">créer un job</text><path class="edge" d="M 665 222 H 715"></path><text class="edge-label" x="674" y="206">traiter</text><path class="edge" d="M 905 222 H 935"></path><text class="edge-label" x="900" y="206">écrire une note</text><path class="edge emphasis" d="M 190 452 H 330"></path><text class="edge-label" x="224" y="436">piloter</text><path class="edge local" d="M 425 412 V 350 H 570 V 296"></path><text class="edge-label" x="442" y="394">suivre les états</text><path class="edge security" d="M 665 452 H 570 V 296"></path><text class="edge-label" x="587" y="438">outils locaux</text><path class="edge security" d="M 935 452 H 805 V 296"></path><text class="edge-label" x="834" y="438">outils MCP</text><path class="edge local" d="M 665 452 H 935 V 296"></path><text class="edge-label" x="776" y="438">lire / relier</text><rect class="node external" x="30" y="188" width="160" height="68" rx="9"></rect><text class="node-title" x="110" y="218" text-anchor="middle">Sources variées</text><text class="node-sub" x="110" y="236" text-anchor="middle">Liens · vidéo · social</text><rect class="node backend" x="245" y="188" width="180" height="68" rx="9"></rect><text class="node-title" x="335" y="218" text-anchor="middle">Synchronisation</text><text class="node-sub" x="335" y="236" text-anchor="middle">Collecte locale</text><rect class="node messagebus" x="475" y="188" width="190" height="68" rx="9"></rect><text class="node-title" x="570" y="218" text-anchor="middle">Pipeline de jobs</text><text class="node-sub" x="570" y="236" text-anchor="middle">États · reprises · files</text><rect class="node backend" x="715" y="188" width="190" height="68" rx="9"></rect><text class="node-title" x="810" y="218" text-anchor="middle">Enrichissement</text><text class="node-sub" x="810" y="236" text-anchor="middle">Transcription · analyse</text><rect class="node database" x="935" y="188" width="160" height="68" rx="9"></rect><text class="node-title" x="1015" y="218" text-anchor="middle">Obsidian</text><text class="node-sub" x="1015" y="236" text-anchor="middle">Notes · liens · graphe</text><rect class="node frontend" x="245" y="418" width="180" height="68" rx="9"></rect><text class="node-title" x="335" y="448" text-anchor="middle">Interface locale</text><text class="node-sub" x="335" y="466" text-anchor="middle">React / Vite</text><rect class="node backend" x="475" y="418" width="190" height="68" rx="9"></rect><text class="node-title" x="570" y="448" text-anchor="middle">API de pilotage</text><text class="node-sub" x="570" y="466" text-anchor="middle">FastAPI</text><rect class="node security" x="715" y="418" width="190" height="68" rx="9"></rect><text class="node-title" x="810" y="448" text-anchor="middle">Serveur MCP</text><text class="node-sub" x="810" y="466" text-anchor="middle">Accès contrôlé</text><rect class="node external" x="935" y="418" width="160" height="68" rx="9"></rect><text class="node-title" x="1015" y="448" text-anchor="middle">Agents IA</text><text class="node-sub" x="1015" y="466" text-anchor="middle">Compatibles MCP</text><circle class="legend-dot" cx="46" cy="530" r="6" fill="#42a9bf" stroke="#42a9bf"></circle><text class="legend" x="60" y="534">Frontend</text><circle class="legend-dot" cx="150" cy="530" r="6" fill="#45a978" stroke="#45a978"></circle><text class="legend" x="164" y="534">Traitement</text><circle class="legend-dot" cx="260" cy="530" r="6" fill="#8a55e8" stroke="#8a55e8"></circle><text class="legend" x="274" y="534">Connaissances</text><circle class="legend-dot" cx="390" cy="530" r="6" fill="#e35c75" stroke="#e35c75"></circle><text class="legend" x="404" y="534">Accès contrôlé</text></svg></div><p class="video-note">Le schéma distingue les sources, le pilotage local, le pipeline de jobs, l’enrichissement et la base de connaissances Obsidian.</p><a class="button" href="assets/local-second-brain/local-second-brain-architecture.html">Ouvrir le schéma interactif</a></div></div></section>
+      <section><div class="section-grid"><h2>Ce que je construis</h2><div><p>Les fonctionnalités principales sont la synchronisation de contenu, l’enrichissement automatique, un serveur MCP à accès contrôlé, une interface FastAPI/React et la génération de liens vers Obsidian.</p><ol class="flow-list"><li>Recevoir un contenu depuis une source variée</li><li>Le traiter dans une file de jobs locale</li><li>Ajouter transcription, analyse et métadonnées</li><li>Créer ou mettre à jour une note structurée</li><li>Relier la note au reste du graphe de connaissances</li></ol></div></div></section>
+      <section><div class="section-grid"><h2>Ce que j’ai appris</h2><div><p>Ce projet m’a appris à automatiser un navigateur, traiter des contenus multimédias, gérer un pipeline de jobs, concevoir des accès MCP limités et construire progressivement un système de connaissances personnel.</p><p class="note">Le projet reste expérimental : certaines intégrations évoluent encore et la démonstration publique utilise uniquement des données fictives ou anonymisées.</p></div></div></section>
+       <section><div class="section-grid"><h2 id="second-brain-video-title">Voir le projet travailler</h2><div><p class="video-note">La vidéo suit le parcours d’un contenu, de sa collecte à son apparition dans le graphe Obsidian.</p><video aria-labelledby="second-brain-video-title" controls preload="metadata" poster="assets/local-second-brain/brag.jpg"><source src="assets/local-second-brain/brag.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video></div></div></section>
+    </article>
+    <article id="warungfit" class="project" aria-labelledby="warungfit-titre">
+      <header class="hero">
+        <div>
+          <div class="project-tag">Projet personnel · Flutter · Supabase</div>
+          <h2 id="warungfit-titre" class="project-title">Photographier un repas, puis corriger l’estimation.</h2>
+          <div class="project-meta"><span>Flutter · Dart</span><span>Supabase</span><span>Code source privé</span></div>
+          <p class="lede">WarungFit est une application mobile qui estime les apports d’un repas à partir d’une photo. L’utilisateur peut corriger le résultat, enregistrer son repas et suivre ses objectifs dans le temps.</p>
+          <p><span class="status-pill">Étude de cas · code source privé</span></p>
+        </div>
+        <figure class="warungfit-banner">
+          <img src="assets/warungfit/banner.png" alt="Bannière de présentation de WarungFit avec un plat photographié">
+        </figure>
+      </header>
+       <section><div class="section-grid"><h2>Le parcours</h2><div><p>L’utilisateur peut corriger l’estimation avant d’enregistrer le repas.</p><ol class="flow-list"><li>Prendre une photo ou choisir une image</li><li>Envoyer l’image à une fonction serveur authentifiée</li><li>Recevoir une estimation structurée du repas</li><li>Corriger les ingrédients et les portions proposés</li><li>Enregistrer le résultat dans l’historique</li></ol></div></div></section>
+        <section><div class="section-grid"><h2>Les écrans clés</h2><div><p>Les écrans principaux couvrent l’accueil, l’estimation, la correction et les objectifs.</p><div class="warungfit-gallery"><figure class="warungfit-shot"><img src="assets/warungfit/home.png" alt="Écran d’accueil WarungFit avec le suivi des calories et des repas"><figcaption>Accueil et suivi de la journée.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/meal-result.png" alt="Écran de résultat d’un repas WarungFit"><figcaption>Résultat estimé avant validation.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/fix-result.png" alt="Écran de correction des ingrédients d’un repas WarungFit"><figcaption>Correction manuelle des ingrédients.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/nutrition-targets.png" alt="Écran des objectifs nutritionnels WarungFit"><figcaption>Objectifs nutritionnels personnalisables.</figcaption></figure></div><p class="note">Visuels de présentation fournis pour le projet ; ils ne constituent pas une preuve de déploiement public.</p></div></div></section>
+       <section><div class="section-grid"><h2 id="warungfit-video-title">Voir le projet en action</h2><div><p>La vidéo suit le parcours d’un repas, de la photo initiale à la correction finale. Elle montre aussi le lien entre l’application, les fonctions serveur et l’analyse d’image.</p><video aria-labelledby="warungfit-video-title" controls preload="metadata" poster="assets/warungfit/brag.jpg"><source src="assets/warungfit/brag.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><p class="video-note">Démonstration silencieuse · 35 secondes.</p></div></div></section>
+       <section><div class="section-grid"><h2>Ce que j’ai construit</h2><div><p>J’ai relié l’application Flutter à Supabase Auth, PostgreSQL, Storage et plusieurs Edge Functions. L’analyse d’image appelle OpenAI depuis le serveur. Le client conserve aussi un cache local pour afficher rapidement les objectifs et les repas récents.</p><p class="stack">Stack : Flutter · Dart · Supabase Auth · PostgreSQL · Storage · Edge Functions · OpenAI.</p></div></div></section>
+      <section><div class="section-grid"><h2>Architecture et données</h2><div><div class="architecture-diagram"><svg viewBox="0 0 1120 610" role="img" aria-labelledby="warungfit-architecture-title warungfit-architecture-desc"><title id="warungfit-architecture-title">Architecture et frontières de confiance de WarungFit</title><desc id="warungfit-architecture-desc">L’utilisateur utilise l’application Flutter. L’application échange avec Supabase Auth, les Edge Functions, l’API Data, PostgreSQL et Storage. Les Edge Functions appellent OpenAI pour l’analyse visuelle, tandis que le cache reste sur l’appareil mobile.</desc><defs><marker id="warungfit-architecture-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7b8992"></path></marker></defs><rect class="boundary" x="225" y="120" width="260" height="390" rx="18"></rect><text class="boundary-label" x="250" y="148">Appareil mobile</text><rect class="boundary" x="520" y="54" width="560" height="456" rx="18"></rect><text class="boundary-label" x="546" y="82">Plateforme Supabase</text><path class="edge emphasis" d="M 185 290 H 225"></path><text class="edge-label" x="190" y="274">utiliser</text><path class="edge security" d="M 395 255 V 175 H 575"></path><text class="edge-label" x="410" y="164">Google ID token</text><path class="edge emphasis" d="M 395 290 H 575"></path><text class="edge-label" x="420" y="274">JWT + image</text><path class="edge security" d="M 665 215 V 150"></path><text class="edge-label" x="680" y="186">valide JWT</text><path class="edge" d="M 755 215 H 820"></path><text class="edge-label" x="766" y="198">Responses API</text><path class="edge security" d="M 395 330 H 575"></path><text class="edge-label" x="430" y="350">requêtes métier</text><path class="edge security" d="M 755 350 H 820"></path><text class="edge-label" x="766" y="334">SQL + RLS</text><path class="edge security" d="M 755 385 V 445 H 820"></path><text class="edge-label" x="770" y="430">objets privés</text><path class="edge local" d="M 395 360 V 430"></path><text class="edge-label" x="410" y="400">cache local</text><rect class="node external" x="35" y="256" width="150" height="68" rx="9"></rect><text class="node-title" x="110" y="286" text-anchor="middle">Utilisateur</text><text class="node-sub" x="110" y="304" text-anchor="middle">Photo · objectifs</text><rect class="node frontend" x="225" y="256" width="170" height="68" rx="9"></rect><text class="node-title" x="310" y="286" text-anchor="middle">Application Flutter</text><text class="node-sub" x="310" y="304" text-anchor="middle">Android / iOS</text><rect class="node database" x="225" y="430" width="170" height="58" rx="9"></rect><text class="node-title" x="310" y="456" text-anchor="middle">Cache local</text><text class="node-sub" x="310" y="474" text-anchor="middle">SharedPreferences</text><rect class="node security" x="575" y="116" width="180" height="68" rx="9"></rect><text class="node-title" x="665" y="146" text-anchor="middle">Supabase Auth</text><text class="node-sub" x="665" y="164" text-anchor="middle">Google Sign-In + JWT</text><rect class="node backend" x="575" y="215" width="180" height="68" rx="9"></rect><text class="node-title" x="665" y="245" text-anchor="middle">Edge Functions</text><text class="node-sub" x="665" y="263" text-anchor="middle">Deno / TypeScript</text><rect class="node external" x="820" y="215" width="200" height="68" rx="9"></rect><text class="node-title" x="920" y="245" text-anchor="middle">OpenAI Responses API</text><text class="node-sub" x="920" y="263" text-anchor="middle">Analyse visuelle</text><rect class="node backend" x="575" y="320" width="180" height="68" rx="9"></rect><text class="node-title" x="665" y="350" text-anchor="middle">Supabase Data API</text><text class="node-sub" x="665" y="368" text-anchor="middle">PostgREST sous RLS</text><rect class="node database" x="820" y="320" width="200" height="68" rx="9"></rect><text class="node-title" x="920" y="350" text-anchor="middle">PostgreSQL</text><text class="node-sub" x="920" y="368" text-anchor="middle">Repas · profils · objectifs</text><rect class="node cloud" x="820" y="430" width="200" height="68" rx="9"></rect><text class="node-title" x="920" y="460" text-anchor="middle">Supabase Storage</text><text class="node-sub" x="920" y="478" text-anchor="middle">Photos de repas</text><circle class="legend-dot" cx="46" cy="572" r="6" fill="#42a9bf" stroke="#42a9bf"></circle><text class="legend" x="60" y="576">Application</text><circle class="legend-dot" cx="158" cy="572" r="6" fill="#45a978" stroke="#45a978"></circle><text class="legend" x="172" y="576">Backend</text><circle class="legend-dot" cx="260" cy="572" r="6" fill="#8a55e8" stroke="#8a55e8"></circle><text class="legend" x="274" y="576">Données</text><circle class="legend-dot" cx="355" cy="572" r="6" fill="#e35c75" stroke="#e35c75"></circle><text class="legend" x="369" y="576">Sécurité</text><circle class="legend-dot" cx="450" cy="572" r="6" fill="#e49a2d" stroke="#e49a2d"></circle><text class="legend" x="464" y="576">Stockage</text></svg></div><p class="video-note">Le schéma sépare l’appareil mobile, les services Supabase et le fournisseur d’analyse. Il montre aussi où interviennent l’authentification, le stockage privé et les règles d’accès aux données.</p><a class="button" href="assets/warungfit/architecture.html">Ouvrir le schéma interactif</a></div></div></section>
+      <section><div class="section-grid"><h2>Données et accès</h2><div><p>Le projet manipule des photos de repas et des informations liées au profil. J’ai donc traité les contrôles d’accès comme une partie du fonctionnement de l’application.</p><div class="privacy-list"><div class="privacy-item"><h3>Session</h3><p>Les fonctions sensibles vérifient le jeton de l’utilisateur avant de poursuivre.</p></div><div class="privacy-item"><h3>Isolation</h3><p>Les règles de la base limitent chaque compte à ses propres repas et objectifs.</p></div><div class="privacy-item"><h3>Images</h3><p>Les fichiers utilisent un espace privé organisé par utilisateur.</p></div><div class="privacy-item"><h3>Entrées</h3><p>Le texte, les images et les valeurs nutritionnelles sont contrôlés avant traitement.</p></div></div></div></div></section>
+      <section><div class="section-grid"><h2>Ce que j’ai appris</h2><div><p>Ce projet m’a appris à faire fonctionner ensemble une application mobile, une base de données, du stockage de fichiers et un service d’IA distant. Il m’a aussi obligé à suivre le parcours complet d’une donnée personnelle, de la photo initiale jusqu’à la suppression du compte.</p><p class="note">Le dépôt reste privé. Les tests entre plusieurs comptes et la suppression complète doivent encore être rejoués sur un environnement Supabase dédié avant toute mise en production.</p></div></div></section>
+     </article>
+    <section id="contact" aria-labelledby="contact-titre">
+      <div class="contact-panel">
+        <div>
+          <h2 id="contact-titre">Un projet SSI ou IA à construire ?</h2>
+          <p>Je recherche un stage de fin d’études à partir de l’été 2027.</p>
+        </div>
+         <div class="links"><a class="button" href="mailto:noebriffa37@gmail.com">Me contacter</a><a class="button" href="assets/CV.pdf" target="_blank" rel="noopener">Télécharger mon CV</a></div>
+      </div>
+    </section>
+    </div>
+    <footer>Portfolio de Noé Briffa · SSI, IA appliquée et automatisation.</footer>
+  </main>
+</body>
+</html>
