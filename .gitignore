@@ -6,6 +6,8 @@ node_modules/
 
 # Brag / Hyperframes working outputs (published media is copied explicitly)
 brag-output/*/composition/
+brag-output/**/composition/
+brag-output/**/validation*/
 brag-output/*/tmp/
 brag-output/**/*.wav
 brag-output/**/brag-v2.*
