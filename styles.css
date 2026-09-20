@@ -130,6 +130,18 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
   .pipeline-diagram svg{min-width:640px}
 }
 
+/* Quiet, non-interactive globe between the hero thesis and Repères. */
+.home-page #contenu{position:relative}
+.thinking-orb{position:absolute;z-index:0;top:clamp(190px,18vw,270px);left:clamp(48%,53%,58%);width:clamp(240px,23vw,300px);height:clamp(240px,23vw,300px);pointer-events:none;opacity:.72}
+.thinking-orb canvas{display:block;width:100%;height:100%}
+.home-page .profile-intro,.home-page .profile-intro>:not(.thinking-orb){position:relative;z-index:1}
+@media(max-width:1040px){.thinking-orb{left:auto;right:24%;width:240px;height:240px;opacity:.56}}
+@media(max-width:760px){.thinking-orb{display:none}}
+@media(prefers-reduced-motion:reduce){.thinking-orb{opacity:.62}}
+.home-page .profile-intro>.thinking-orb{position:absolute;z-index:0;top:50%;left:clamp(48%,53%,58%);transform:translate(-50%,-50%)}
+@media(max-width:1040px){.home-page .profile-intro>.thinking-orb{left:auto;right:24%;width:240px;height:240px}}
+@media(max-width:760px){.home-page .profile-intro>.thinking-orb{display:none}}
+
 /* Loop 4: homepage target-like refinement. */
 .home-page{--rail-right:7%}
 .home-page .profile-intro{position:relative;isolation:isolate}
