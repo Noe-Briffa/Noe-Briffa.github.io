@@ -248,6 +248,7 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
 .home-page>nav{font-size:.8rem}
 .home-page>nav .nav-links{font-size:.88rem;gap:8px 22px}
 .home-page>nav .nav-links a,.index-page>nav .nav-links a{display:inline-flex;align-items:center;padding-block:6px}
+.home-page>nav .nav-links a{min-height:40px}
 .index-page>nav,.project-page>nav{font-size:.8rem}
 .index-page>nav .nav-links,.project-page>nav .nav-links{font-size:.88rem;gap:8px 22px}
 .home-page .profile-list li:first-child{border-top:0}
