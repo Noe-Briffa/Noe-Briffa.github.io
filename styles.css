@@ -420,3 +420,29 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
     padding:14px 15px 15px;
   }
 }
+
+@media(max-width:760px){
+  .home-page>nav,.index-page>nav,.project-page>nav{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    row-gap:10px;
+    align-items:center;
+  }
+  .home-page>nav>span,.index-page>nav>span,.project-page>nav>span{
+    grid-column:1;
+    grid-row:1;
+  }
+  .home-page>nav .nav-links,.index-page>nav .nav-links,.project-page>nav .nav-links{
+    grid-column:1 / -1;
+    grid-row:2;
+    width:100%;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:8px 20px;
+  }
+  .home-page>nav::after{
+    grid-column:2;
+    grid-row:1;
+    margin-left:auto;
+  }
+}
