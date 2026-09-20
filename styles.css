@@ -145,10 +145,10 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
 /* Loop 4: homepage target-like refinement. */
 .home-page{--rail-right:7%}
 .home-page .profile-intro{position:relative;isolation:isolate}
-.home-page .profile-intro::before{content:"";position:absolute;inset:-24px -48px 0;z-index:-2;opacity:.72;background-image:linear-gradient(90deg,transparent 0 37%,rgba(76,137,153,.22) 37% 37.12%,transparent 37.12% 55%,rgba(76,137,153,.17) 55% 55.12%,transparent 55.12%),linear-gradient(transparent 0 28%,rgba(76,137,153,.19) 28% 28.12%,transparent 28.12% 66%,rgba(76,137,153,.16) 66% 66.12%,transparent 66.12%),radial-gradient(circle at 37% 28%,#5ba991 0 3px,transparent 3.5px),radial-gradient(circle at 55% 66%,#5ba991 0 3px,transparent 3.5px),radial-gradient(circle at 69% 46%,#5aa3c3 0 3px,transparent 3.5px),linear-gradient(rgba(84,128,126,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(84,128,126,.09) 1px,transparent 1px);background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,56px 56px,56px 56px;mask-image:linear-gradient(90deg,transparent 0,black 14%,black 86%,transparent 100%)}
-.home-page .profile-intro::after{content:"";position:absolute;right:var(--rail-right);bottom:3px;width:210px;height:150px;z-index:-1;opacity:.46;background-image:radial-gradient(circle,rgba(79,151,137,.58) 1px,transparent 1.4px);background-size:7px 7px;clip-path:polygon(8% 100%,31% 66%,47% 78%,69% 31%,100% 0,100% 100%)}
+.home-page .profile-intro::before{content:"";position:absolute;inset:-24px -48px 0;z-index:-2;opacity:.42;background-image:linear-gradient(90deg,transparent 0 37%,rgba(76,137,153,.18) 37% 37.12%,transparent 37.12% 55%,rgba(76,137,153,.13) 55% 55.12%,transparent 55.12%),linear-gradient(transparent 0 28%,rgba(76,137,153,.15) 28% 28.12%,transparent 28.12% 66%,rgba(76,137,153,.12) 66% 66.12%,transparent 66.12%),radial-gradient(circle at 37% 28%,#5ba991 0 3px,transparent 3.5px),radial-gradient(circle at 55% 66%,#5ba991 0 3px,transparent 3.5px),radial-gradient(circle at 69% 46%,#5aa3c3 0 3px,transparent 3.5px),linear-gradient(rgba(84,128,126,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(84,128,126,.012) 1px,transparent 1px);background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,56px 56px,56px 56px;mask-image:linear-gradient(90deg,transparent 0,black 14%,black 86%,transparent 100%)}
+.home-page .profile-intro::after{content:"";position:absolute;left:24%;bottom:0;width:500px;height:220px;z-index:-1;opacity:.36;background-image:radial-gradient(circle,rgba(79,151,137,.58) .75px,transparent 1.15px),radial-gradient(circle,rgba(79,151,137,.3) .6px,transparent 1px);background-size:5px 5px,8px 8px;background-position:0 0,2px 3px;clip-path:polygon(0 100%,18% 70%,34% 82%,52% 35%,68% 60%,85% 18%,100% 49%,100% 100%);mask-image:linear-gradient(to bottom,black 0,black 68%,transparent 100%)}
 .home-page .hero-copy{position:relative}
-.home-page .hero-copy::before{content:none}
+.home-page .hero-copy::before{content:"";position:absolute;left:48%;bottom:-18px;width:235px;height:145px;z-index:-1;pointer-events:none;opacity:.2;background-image:radial-gradient(circle,rgba(79,151,137,.52) .7px,transparent 1.1px);background-size:5px 5px;clip-path:polygon(0 100%,24% 68%,43% 80%,62% 38%,79% 57%,100% 22%,100% 100%);mask-image:linear-gradient(to bottom,black 0,transparent 92%)}
 .home-page .eyebrow{display:flex;align-items:center;gap:12px}
 .home-page .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:#5aa98c;box-shadow:0 0 0 4px rgba(90,169,140,.08)}
 .home-page .button{gap:10px;min-height:50px;padding:12px 17px;border-radius:5px;font-size:.83rem}
@@ -198,8 +198,8 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
 .footer-words{position:relative;z-index:1;padding-left:14px;border-left:1px solid #c5d0c7;color:#76918f;font:600 .57rem/1.7 Arial,sans-serif;letter-spacing:.17em}
 
 @media(max-width:760px){
-  .home-page .profile-intro::before{inset:-20px -16px 0;background-size:42px 42px}
-  .home-page .profile-intro::after{right:-4%;width:170px;height:120px}
+  .home-page .profile-intro::before{inset:-20px -16px 0;background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,42px 42px,42px 42px}
+  .home-page .profile-intro::after{left:auto;right:-4%;width:170px;height:120px}
   .home-page .hero-copy::before{display:none}
   .home-page .profile-aside{min-height:0}
   .home-page .section-intro{display:block}

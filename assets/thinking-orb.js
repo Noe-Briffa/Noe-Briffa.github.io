@@ -3,6 +3,7 @@
   "use strict";
   var canvas = document.getElementById("thinking-orb-canvas");
   if (!canvas || !canvas.getContext) return;
+  var ORB_SPEED = 0.5;
   var intro = document.getElementById("a-propos");
   if (intro && canvas.parentElement) intro.insertBefore(canvas.parentElement, intro.querySelector(".profile-aside"));
   var ctx = canvas.getContext("2d");
@@ -18,6 +19,7 @@
     draw(reduced.matches ? 0 : (performance.now() - start) / 1000);
   }
   function draw(time) {
+    time *= ORB_SPEED;
     var size = Math.min(canvas.clientWidth, canvas.clientHeight); if (!size) return;
     var center = size / 2, radius = size * 0.41, yaw = time * 0.5;
     var tilt = 0.4 + Math.sin(time * 0.35) * 0.06, scan = time * 1.7;
