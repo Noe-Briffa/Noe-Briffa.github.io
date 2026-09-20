@@ -3,176 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio technique de Noé Briffa : vision par ordinateur, IA locale, systèmes de connaissances et application mobile.">
-  <title>Portfolio technique · Noé Briffa</title>
-  <style>
-    :root { --ink:#18211f; --muted:#65716d; --paper:#f4f1e9; --line:#d8d5ca; --accent:#b8e26f; --dark:#202b28; }
-    * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, sans-serif; line-height:1.55; }
-    main { max-width:1160px; margin:auto; padding:28px clamp(22px,5vw,72px) 80px; }
-    nav { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:20px; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
-    nav a { margin-left:18px; text-decoration:none; }
-    nav span:last-child { display:flex; flex-wrap:wrap; justify-content:flex-end; color:var(--muted); }
-    .hero { min-height:64vh; display:grid; grid-template-columns:1.1fr .9fr; gap:8vw; align-items:center; padding:72px 0 64px; }
-    .eyebrow { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
-    h1 { max-width:760px; margin:18px 0 24px; font-family:Georgia, serif; font-size:clamp(3.4rem,8vw,7.6rem); font-weight:400; letter-spacing:-.07em; line-height:.9; }
-    .lede { max-width:560px; color:var(--muted); font-size:1.13rem; }
-    .hero-card { background:var(--dark); color:#f7f3e9; padding:18px; transform:rotate(2deg); box-shadow:16px 16px 0 var(--accent); }
-    .triptych { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-    .triptych figure { margin:0; min-width:0; }
-    .triptych img { display:block; width:100%; aspect-ratio:1; object-fit:cover; filter:saturate(.9); }
-    .triptych figcaption { margin-top:9px; color:#c3ccc7; font-size:.66rem; line-height:1.3; }
-    .hero-card small { display:block; margin-top:18px; color:#c3ccc7; font-size:.8rem; }
-    section { border-top:1px solid var(--line); padding:58px 0; }
-    .section-grid { display:grid; grid-template-columns:.35fr 1fr; gap:7vw; }
-    .section-grid > * { min-width:0; }
-    h2 { margin:0; font-family:Georgia,serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; letter-spacing:-.05em; line-height:1; }
-    p { max-width:680px; }
-    .pipeline-diagram { width:100%; max-width:760px; margin:28px auto 0; overflow:hidden; border:1px solid var(--line); background:#fbfaf5; }
-    .pipeline-diagram svg { display:block; width:100%; height:auto; min-width:0; }
-    .pipeline-diagram .lane { fill:#eeeae0; stroke:var(--line); }
-    .pipeline-diagram .box { fill:var(--dark); stroke:var(--dark); }
-    .pipeline-diagram .box.model { fill:#496345; stroke:#496345; }
-    .pipeline-diagram .box.output { fill:#dcefb0; stroke:#b8d77a; }
-    .pipeline-diagram .label { fill:#f7f3e9; font:600 15px Inter,Arial,sans-serif; }
-    .pipeline-diagram .box.output + .label { fill:var(--ink); }
-    .pipeline-diagram .sub { fill:#6d756d; font:500 11px Inter,Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
-    .pipeline-diagram .arrow { fill:none; stroke:#6d756d; stroke-width:2; marker-end:url(#flow-arrow); }
-    .pipeline-diagram .arrow.model { stroke:#6c9b54; }
-    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); margin-top:30px; }
-    .metric { background:var(--paper); padding:22px; }
-    .metric strong { display:block; font-family:Georgia,serif; font-size:2rem; font-weight:400; }
-    .metric small { color:var(--muted); }
-    video { display:block; width:100%; background:#111; margin-top:26px; }
-    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-    a { color:var(--ink); text-underline-offset:4px; }
-    .button { border:1px solid var(--ink); padding:11px 16px; text-decoration:none; font-size:.86rem; }
-    .button:hover, .button:focus-visible { background:var(--accent); }
-    .note { color:var(--muted); font-size:.9rem; }
-    footer { border-top:1px solid var(--line); padding-top:22px; color:var(--muted); font-size:.82rem; }
-    .project { scroll-margin-top:28px; }
-    .project + .project { margin-top:18px; }
-    .project-tag { color:#4d6d2f; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
-    .rag-card { background:#17212b; color:#f7f3e9; padding:18px; box-shadow:16px 16px 0 #f58220; transform:rotate(-1.5deg); }
-    .rag-card img { display:block; width:100%; height:auto; }
-    .rag-card small { display:block; margin-top:14px; color:#cbd6dd; font-size:.8rem; }
-    .flow-list { display:grid; gap:10px; margin:26px 0 0; padding:0; list-style:none; counter-reset:flow; }
-    .flow-list li { counter-increment:flow; border-left:3px solid var(--accent); padding:10px 14px; background:#fbfaf5; }
-    .flow-list li::before { content:counter(flow, decimal-leading-zero); margin-right:12px; color:#4d6d2f; font:600 .75rem Inter, sans-serif; }
-    .stack { color:var(--muted); font-size:.9rem; }
-    .video-note { color:var(--muted); font-size:.9rem; }
-    .status-pill { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid #cbd7b5; background:#eef6df; color:#45652f; font-size:.78rem; font-weight:700; letter-spacing:.03em; }
-    .status-pill::before { content:""; width:7px; height:7px; border-radius:50%; background:#78a84b; }
-    .case-image { display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff; }
-    .case-image.graph { aspect-ratio:16/9; object-fit:cover; }
-    .second-brain-card { background:#17212b; color:#f7f3e9; padding:18px; box-shadow:16px 16px 0 #b8e26f; transform:rotate(1.2deg); }
-    .second-brain-card img { display:block; width:100%; height:auto; }
-    .second-brain-card small { display:block; margin-top:14px; color:#cbd6dd; font-size:.8rem; }
-    .case-columns { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:28px; }
-    .case-card { border:1px solid var(--line); background:#fbfaf5; padding:20px; }
-    .case-card strong { display:block; margin-bottom:7px; font-family:Georgia,serif; font-size:1.25rem; font-weight:400; }
-    .warungfit-card { position:relative; min-height:560px; overflow:hidden; background:#dfefff; padding:28px; box-shadow:16px 16px 0 #176b49; transform:rotate(-1deg); }
-    .warungfit-phone { position:relative; z-index:1; width:min(290px,82%); margin:0 auto; overflow:hidden; border:8px solid #17212b; border-radius:34px; background:#f8fafc; box-shadow:0 24px 50px rgba(23,33,43,.22); }
-    .warungfit-phone::before { content:""; display:block; width:76px; height:18px; margin:0 auto -18px; border-radius:0 0 12px 12px; background:#17212b; }
-    .warungfit-phone img { display:block; width:100%; aspect-ratio:1.35; object-fit:cover; }
-    .warungfit-screen { padding:18px; }
-    .warungfit-kicker { margin:0 0 5px; color:#547064; font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .warungfit-meal { margin:0; color:#17212b; font:700 1.35rem/1.1 Inter, sans-serif; }
-    .warungfit-score { display:flex; justify-content:space-between; align-items:end; margin:18px 0; padding:14px; border:1px solid #b9ddc8; border-radius:16px; background:#e8f7ee; }
-    .warungfit-score strong { color:#176b49; font:400 2.4rem/1 Georgia, serif; }
-    .warungfit-score span { color:#466055; font-size:.72rem; }
-    .warungfit-macros { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
-    .warungfit-macros span { padding:9px 5px; border-radius:10px; background:#edf1f4; color:#4d5d66; font-size:.68rem; text-align:center; }
-    .warungfit-slip { position:absolute; z-index:2; right:10px; bottom:40px; width:190px; padding:15px; border:1px solid #17212b; background:#fffdf7; box-shadow:8px 8px 0 #f5a623; transform:rotate(4deg); }
-    .warungfit-slip strong { display:block; margin-bottom:6px; font-family:Georgia,serif; font-size:1.05rem; font-weight:400; }
-    .warungfit-slip span, .warungfit-card small { color:#65716d; font-size:.72rem; }
-    .warungfit-card > small { position:absolute; left:20px; bottom:16px; max-width:210px; }
-    .warungfit-banner { margin:0; overflow:hidden; border:1px solid #cddded; background:#eef6ff; box-shadow:14px 14px 0 #a9d4ff; transform:rotate(1deg); }
-    .warungfit-banner img { display:block; width:100%; height:auto; }
-    .warungfit-banner figcaption { padding:10px 14px; color:#526477; background:#f7fbff; font-size:.72rem; }
-    .warungfit-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:30px; }
-    .warungfit-shot { margin:0; min-width:0; }
-    .warungfit-shot img { display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff; box-shadow:0 8px 18px rgba(24,33,31,.08); }
-    .warungfit-shot figcaption { margin-top:9px; color:var(--muted); font-size:.74rem; line-height:1.35; }
-    .privacy-list { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:28px; background:var(--line); }
-    .privacy-item { background:#fbfaf5; padding:22px; }
-    .privacy-item h3 { margin:0 0 8px; font-family:Georgia,serif; font-size:1.3rem; font-weight:400; }
-    .privacy-item p { margin:0; color:var(--muted); font-size:.9rem; }
-    @media (max-width:760px) { nav { align-items:flex-start; gap:18px; } nav span:last-child { row-gap:8px; } .hero, .section-grid { grid-template-columns:1fr; } .hero { padding-top:52px; } .hero-card, .warungfit-card, .warungfit-banner { max-width:480px; margin:10px auto 0; } .metrics { grid-template-columns:1fr; } .privacy-list { grid-template-columns:1fr; } }
-    @media (max-width:520px) { .triptych { grid-template-columns:1fr; } .triptych img { aspect-ratio:1.5; } .pipeline-diagram { overflow-x:auto; } .pipeline-diagram svg { min-width:640px; } .warungfit-gallery { grid-template-columns:1fr; } }
-    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; } }
-  </style>
+  <meta name="description" content="Portfolio de Noé Briffa, étudiant ingénieur en SSI : IA appliquée, automatisation et systèmes locaux.">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Noé Briffa · Portfolio SSI et IA appliquée"><meta property="og:description" content="Projets de vision par ordinateur, IA locale et applications concrètes."><meta property="og:url" content="https://noe-briffa.github.io/"><meta property="og:image" content="https://noe-briffa.github.io/portfolio-preview.png">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Noé Briffa · Portfolio SSI et IA appliquée"><meta name="twitter:description" content="Projets de vision par ordinateur, IA locale et applications concrètes."><meta name="twitter:image" content="https://noe-briffa.github.io/portfolio-preview.png"><meta name="twitter:image:alt" content="Aperçu du portfolio technique de Noé Briffa">
+  <link rel="canonical" href="https://noe-briffa.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>Noé Briffa · Portfolio SSI et IA appliquée</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Noé Briffa","url":"https://noe-briffa.github.io/","jobTitle":"Étudiant ingénieur en sécurité des systèmes d'information"}</script>
 </head>
-<body>
-  <main>
-    <nav><span>Noé Briffa / Portfolio technique</span><span><a href="#colorisation">Projet 01</a><a href="#rag">Projet 02</a><a href="#second-brain">Projet 03</a><a href="#warungfit">Projet 04</a></span></nav>
-    <article id="colorisation" class="project">
-    <header class="hero">
-      <div>
-        <div class="eyebrow">Projet personnel · Python · PyTorch</div>
-        <h1>Redonner une couleur plausible au gris.</h1>
-        <p class="lede">Un modèle de deep learning transforme des images en niveaux de gris en colorisations cohérentes. Le projet couvre le pipeline de données, l’architecture, l’entraînement, l’inférence et l’évaluation.</p>
-      </div>
-      <div class="hero-card"><div class="triptych" aria-label="Comparaison entrée, prédiction et référence"><figure><img src="assets/colorization/comparison_idx32_input.png" alt="Image en niveaux de gris"><figcaption>Entrée</figcaption></figure><figure><img src="assets/colorization/comparison_idx32_prediction.png" alt="Prédiction du modèle"><figcaption>Prédiction</figcaption></figure><figure><img src="assets/colorization/comparison_idx32_reference.png" alt="Référence couleur"><figcaption>Référence</figcaption></figure></div><small>Un même exemple, trois lectures.</small></div>
-    </header>
-    <section><div class="section-grid"><h2>Le pipeline</h2><div><p>Les images passent dans l’espace CIELAB. Le modèle reçoit la luminance L et prédit les canaux chromatiques a et b. Un U-Net léger, enrichi par une attention CBAM, reconstruit ensuite l’image colorisée.</p><div class="pipeline-diagram"><svg viewBox="0 0 900 340" role="img" aria-labelledby="flow-title flow-desc"><title id="flow-title">Pipeline de colorisation</title><desc id="flow-desc">L’image grise est convertie en CIELAB. Le canal L entre dans U-Net avec CBAM, qui prédit les canaux a et b. Le canal L et les canaux a et b sont recombinés pour produire une image RGB colorisée.</desc><defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6d756d"></path></marker></defs><rect class="lane" x="18" y="24" width="864" height="60" rx="12"></rect><text class="sub" x="36" y="59">Prétraitement</text><rect class="box" x="168" y="41" width="140" height="30" rx="7"></rect><text class="label" x="238" y="61" text-anchor="middle">Image gris</text><path class="arrow" d="M 308 56 H 360"></path><rect class="box" x="360" y="41" width="154" height="30" rx="7"></rect><text class="label" x="437" y="61" text-anchor="middle">Conversion CIELAB</text><path class="arrow" d="M 514 56 H 566"></path><rect class="box" x="566" y="41" width="98" height="30" rx="7"></rect><text class="label" x="615" y="61" text-anchor="middle">Canal L</text><rect class="lane" x="18" y="108" width="864" height="100" rx="12"></rect><text class="sub" x="36" y="143">Modèle</text><path class="arrow model" d="M 615 71 V 158 H 550"></path><rect class="box model" x="380" y="158" width="170" height="34" rx="8"></rect><text class="label" x="465" y="180" text-anchor="middle">U-Net + CBAM</text><path class="arrow model" d="M 550 175 H 590"></path><rect class="box model" x="590" y="158" width="154" height="34" rx="8"></rect><text class="label" x="667" y="180" text-anchor="middle">Canaux a/b</text><rect class="lane" x="18" y="232" width="864" height="70" rx="12"></rect><text class="sub" x="36" y="269">Reconstruction</text><path class="arrow model" d="M 615 71 V 250"></path><path class="arrow model" d="M 667 192 V 250"></path><rect class="box model" x="590" y="250" width="152" height="34" rx="8"></rect><text class="label" x="666" y="272" text-anchor="middle">Recomposition Lab</text><path class="arrow model" d="M 742 267 H 790"></path><rect class="box output" x="790" y="250" width="82" height="34" rx="8"></rect><text class="label" x="831" y="272" text-anchor="middle">RGB</text></svg></div></div></div></section>
-    <section><div class="section-grid"><h2>Mesurer avant de montrer</h2><div><p>Les résultats ci-dessous viennent d’une évaluation indépendante sur 100 images de test, sélectionnées avec la seed 42.</p><div class="metrics"><div class="metric"><strong>23,29</strong><small>PSNR moyen</small></div><div class="metric"><strong>0,940</strong><small>SSIM moyen</small></div><div class="metric"><strong>14,84</strong><small>DeltaE moyen</small></div></div><p class="note">Les couleurs sont plausibles, mais une image noir et blanc ne permet pas de garantir les couleurs historiques d’origine.</p></div></div></section>
-      <section><div class="section-grid"><h2>Voir le modèle travailler</h2><div><p>La vidéo résume le pipeline, l’architecture et les sorties sélectionnées.</p><video controls preload="metadata" poster="assets/colorization/bragv2.jpg"><source src="assets/colorization/bragv2.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn">Code source</a><a class="button" href="https://github.com/Noe-Briffa/image-colorization-nn/releases/tag/v1.0.0-portfolio">Checkpoint et Release</a></div></div></div></section>
-    <section><div class="section-grid"><h2>Pour les prochains projets</h2><div><p>La génération de cette vidéo a donné lieu à un guide de préparation et de contrôle : images propres, libellés dans la composition, exemples vérifiés et métriques correctement contextualisées.</p><a href="VIDEO_GUIDELINES.md">Lire le guide vidéo</a></div></div></section>
-    </article>
-
-    <article id="rag" class="project">
-      <header class="hero">
-        <div>
-          <div class="project-tag">Projet personnel · Python · IA locale</div>
-          <h1>Comprendre un RAG en le construisant.</h1>
-          <p class="lede">Un assistant local répond à des questions sur un PDF en recherchant les passages utiles avant de solliciter un modèle GGUF. Le projet m’a surtout appris à transformer les principes d’un RAG en un pipeline Python compréhensible.</p>
-        </div>
-        <div class="rag-card"><img src="assets/local-rag/local-rag-demo.jpg" alt="Interface du Local RAG Assistant montrant une réponse sourcée depuis document.pdf"><small>Une question, une réponse locale, une source vérifiable.</small></div>
-      </header>
-      <section><div class="section-grid"><h2>Le flux RAG</h2><div><p>Chaque étape est visible dans le code : le document est extrait, découpé, vectorisé puis recherché. Les passages sélectionnés sont formatés dans un contexte avant l’appel au modèle local.</p><ol class="flow-list"><li>Extraire les pages du PDF avec PyMuPDF.</li><li>Découper le texte avec une taille et un chevauchement contrôlés.</li><li>Créer les embeddings et les conserver dans ChromaDB.</li><li>Rechercher les candidats puis appliquer une sélection MMR.</li><li>Construire le prompt et générer une réponse sourcée avec llama.cpp.</li></ol></div></div></section>
-      <section><div class="section-grid"><h2>Le travail réalisé</h2><div><p>Je n’ai pas importé une solution RAG complète. J’ai étudié le fonctionnement du retrieval augmented generation, puis écrit l’orchestration qui relie extraction, chunking, embeddings, recherche, contexte et génération.</p><p class="stack">Stack : Python · FastAPI · PyMuPDF · ChromaDB · sentence-transformers · llama.cpp · GGUF · CUDA · HTML/JavaScript.</p><p class="note">Les bibliothèques spécialisées restent utilisées pour leurs responsabilités propres ; la logique du pipeline et son enchaînement sont codés dans le projet.</p></div></div></section>
-      <section><div class="section-grid"><h2>Architecture locale</h2><div><img class="pipeline-diagram" src="assets/local-rag/architecture.png" alt="Schéma de l’architecture du Local RAG Assistant"><p class="video-note">Le navigateur appelle FastAPI. L’API lit le document, interroge ChromaDB et envoie le contexte à llama.cpp, sans service distant.</p></div></div></section>
-      <section><div class="section-grid"><h2>Voir le projet travailler</h2><div><p class="video-note">La vidéo suit le parcours complet : ingestion, indexation, recherche vectorielle, génération locale et réponse sourcée.</p><video controls preload="metadata" poster="assets/local-rag/brag-polished.jpg"><source src="assets/local-rag/brag-polished.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><div class="links"><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc">Code source GitHub</a><a class="button" href="https://github.com/Noe-Briffa/local-rag-assistant-poc#architecture">Architecture et documentation</a></div></div></div></section>
-      <section><div class="section-grid"><h2>Limites honnêtes</h2><div><p>Ce POC est conçu pour un usage local : il ne fournit pas d’authentification, dépend d’un modèle GGUF obtenu séparément et n’est pas destiné à être exposé directement sur Internet. La qualité dépend du document, du modèle et des réglages de génération.</p></div></div></section>
-    </article>
-    <article id="second-brain" class="project">
-      <header class="hero">
-        <div>
-          <div class="project-tag">Projet personnel · Python · Système local</div>
-          <h1>Local Second Brain.</h1>
-          <p class="lede">Un système en développement pour transformer des contenus provenant de sources variées en notes enrichies, reliées et consultables dans un espace de connaissances local.</p>
-          <p><span class="status-pill">Projet en développement · dépôt GitHub non public</span></p>
-        </div>
-        <div class="second-brain-card"><img src="assets/local-second-brain/obsidian-graph-anonymized.png" alt="Graphe anonymisé d’un système de connaissances local dans Obsidian"><small>Un graphe de connaissances local, présenté avec des données anonymisées.</small></div>
-      </header>
-      <section><div class="section-grid"><h2>Le principe</h2><div><p>Local Second Brain explore une idée simple : faire passer des contenus hétérogènes par un pipeline local, puis les transformer en connaissances structurées. Le projet peut accueillir des liens, des vidéos ou d’autres sources sans dépendre d’un format unique.</p><div class="case-columns"><div class="case-card"><strong>Collecter</strong><span class="note">Synchroniser des contenus et conserver leur contexte.</span></div><div class="case-card"><strong>Enrichir</strong><span class="note">Transcrire, analyser et ajouter des métadonnées utiles.</span></div><div class="case-card"><strong>Relier</strong><span class="note">Construire des liens entre notes, concepts et projets.</span></div><div class="case-card"><strong>Explorer</strong><span class="note">Retrouver les idées dans une interface locale et un graphe.</span></div></div></div></div></section>
-      <section><div class="section-grid"><h2>Architecture</h2><div><img class="case-image" src="assets/local-second-brain/local-second-brain-architecture.visual-check.1440x900.light.png" alt="Schéma Archify du Local Second Brain : sources, synchronisation, pipeline de jobs, enrichissement et Obsidian"><p class="video-note">Le schéma distingue les sources, le pilotage local, le pipeline de jobs, l’enrichissement et la base de connaissances Obsidian.</p><a class="button" href="assets/local-second-brain/local-second-brain-architecture.html">Ouvrir le schéma interactif</a></div></div></section>
-      <section><div class="section-grid"><h2>Ce que je construis</h2><div><p>Les fonctionnalités principales sont la synchronisation de contenu, l’enrichissement automatique, un serveur MCP à accès contrôlé, une interface FastAPI/React et la génération de liens vers Obsidian.</p><ol class="flow-list"><li>Recevoir un contenu depuis une source variée</li><li>Le traiter dans une file de jobs locale</li><li>Ajouter transcription, analyse et métadonnées</li><li>Créer ou mettre à jour une note structurée</li><li>Relier la note au reste du graphe de connaissances</li></ol></div></div></section>
-      <section><div class="section-grid"><h2>Ce que j’ai appris</h2><div><p>Ce projet m’a appris à automatiser un navigateur, traiter des contenus multimédias, gérer un pipeline de jobs, concevoir des accès MCP limités et construire progressivement un système de connaissances personnel.</p><p class="note">Le projet reste expérimental : certaines intégrations évoluent encore et la démonstration publique utilise uniquement des données fictives ou anonymisées.</p></div></div></section>
-      <section><div class="section-grid"><h2>Voir le projet travailler</h2><div><p class="video-note">La vidéo suit le parcours d’un contenu, de sa collecte à son apparition dans le graphe Obsidian.</p><video controls preload="metadata" poster="assets/local-second-brain/brag.jpg"><source src="assets/local-second-brain/brag.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video></div></div></section>
-    </article>
-    <article id="warungfit" class="project">
-      <header class="hero">
-        <div>
-          <div class="project-tag">Projet personnel · Flutter · Supabase</div>
-          <h1>Photographier un repas, puis corriger l’estimation.</h1>
-          <p class="lede">WarungFit est une application mobile qui estime les apports d’un repas à partir d’une photo. L’utilisateur peut corriger le résultat, enregistrer son repas et suivre ses objectifs dans le temps.</p>
-          <p><span class="status-pill">Étude de cas · code source privé</span></p>
-        </div>
-        <figure class="warungfit-banner">
-          <img src="assets/warungfit/banner.png" alt="Bannière de présentation de WarungFit avec un plat photographié">
-        </figure>
-      </header>
-      <section><div class="section-grid"><h2>Le parcours</h2><div><p>WarungFit place une étape de correction entre la réponse du modèle et l’ajout du repas à l’historique.</p><ol class="flow-list"><li>Prendre une photo ou choisir une image</li><li>Envoyer l’image à une fonction serveur authentifiée</li><li>Recevoir une estimation structurée du repas</li><li>Corriger les ingrédients et les portions proposés</li><li>Enregistrer le résultat dans l’historique</li></ol></div></div></section>
-       <section><div class="section-grid"><h2>Les écrans clés</h2><div><p>Voici les écrans qui structurent l’expérience : accueil, estimation, correction et objectifs.</p><div class="warungfit-gallery"><figure class="warungfit-shot"><img src="assets/warungfit/home.png" alt="Écran d’accueil WarungFit avec le suivi des calories et des repas"><figcaption>Accueil et suivi de la journée.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/meal-result.png" alt="Écran de résultat d’un repas WarungFit"><figcaption>Résultat estimé avant validation.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/fix-result.png" alt="Écran de correction des ingrédients d’un repas WarungFit"><figcaption>Correction manuelle des ingrédients.</figcaption></figure><figure class="warungfit-shot"><img src="assets/warungfit/nutrition-targets.png" alt="Écran des objectifs nutritionnels WarungFit"><figcaption>Objectifs nutritionnels personnalisables.</figcaption></figure></div><p class="note">Visuels de présentation fournis pour le projet ; ils ne constituent pas une preuve de déploiement public.</p></div></div></section>
-       <section><div class="section-grid"><h2>Voir le projet en action</h2><div><p>La vidéo suit le parcours d’un repas, de la photo initiale à la correction finale. Elle montre aussi le lien entre l’application, les fonctions serveur et l’analyse d’image.</p><video controls preload="metadata" poster="assets/warungfit/brag.jpg"><source src="assets/warungfit/brag.mp4" type="video/mp4">Votre navigateur ne peut pas lire cette vidéo.</video><p class="video-note">Démonstration silencieuse · 35 secondes.</p></div></div></section>
-       <section><div class="section-grid"><h2>Ce que j’ai construit</h2><div><p>J’ai relié l’application Flutter à Supabase Auth, PostgreSQL, Storage et plusieurs Edge Functions. L’analyse d’image appelle OpenAI depuis le serveur. Le client conserve aussi un cache local pour afficher rapidement les objectifs et les repas récents.</p><p class="stack">Stack : Flutter · Dart · Supabase Auth · PostgreSQL · Storage · Edge Functions · OpenAI.</p></div></div></section>
-      <section><div class="section-grid"><h2>Architecture et données</h2><div><img class="case-image" src="assets/warungfit/architecture.visual-check.1440x900.light.png" alt="Architecture de WarungFit avec l’application Flutter, Supabase et le service d’analyse d’image"><p class="video-note">Le schéma sépare l’appareil mobile, les services Supabase et le fournisseur d’analyse. Il montre aussi où interviennent l’authentification, le stockage privé et les règles d’accès aux données.</p><a class="button" href="assets/warungfit/architecture.html">Ouvrir le schéma interactif</a></div></div></section>
-      <section><div class="section-grid"><h2>Données et accès</h2><div><p>Le projet manipule des photos de repas et des informations liées au profil. J’ai donc traité les contrôles d’accès comme une partie du fonctionnement de l’application.</p><div class="privacy-list"><div class="privacy-item"><h3>Session</h3><p>Les fonctions sensibles vérifient le jeton de l’utilisateur avant de poursuivre.</p></div><div class="privacy-item"><h3>Isolation</h3><p>Les règles de la base limitent chaque compte à ses propres repas et objectifs.</p></div><div class="privacy-item"><h3>Images</h3><p>Les fichiers utilisent un espace privé organisé par utilisateur.</p></div><div class="privacy-item"><h3>Entrées</h3><p>Le texte, les images et les valeurs nutritionnelles sont contrôlés avant traitement.</p></div></div></div></div></section>
-      <section><div class="section-grid"><h2>Ce que j’ai appris</h2><div><p>Ce projet m’a appris à faire fonctionner ensemble une application mobile, une base de données, du stockage de fichiers et un service d’IA distant. Il m’a aussi obligé à suivre le parcours complet d’une donnée personnelle, de la photo initiale jusqu’à la suppression du compte.</p><p class="note">Le dépôt reste privé. Les tests entre plusieurs comptes et la suppression complète doivent encore être rejoués sur un environnement Supabase dédié avant toute mise en production.</p></div></div></section>
-    </article>
-    <footer>Quatre études de cas personnelles · vision par ordinateur, IA locale, systèmes de connaissances et application mobile.</footer>
-  </main>
-</body>
-</html>
+<body><a class="skip-link" href="#contenu">Aller au contenu</a><main class="home-page">
+  <nav aria-label="Navigation principale"><span>Noé Briffa / Portfolio technique</span><ul class="nav-links"><li><a href="#a-propos">À propos</a></li><li><a href="#projets">Projets</a></li><li><a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a></li><li><a href="mailto:noebriffa37@gmail.com">Contact</a></li></ul></nav>
+  <div id="contenu">
+    <section id="a-propos" class="profile-intro"><div class="hero-copy"><div class="eyebrow">Recherche de stage · Été 2027</div><h1>SSI et IA appliquée.</h1><p class="lede">Étudiant en Master SSI à l’UTT, je construis des outils locaux, testables et utiles.</p><p class="profile-note">Je cherche un stage de fin d’études autour de la sécurité, de l’IA locale et de l’automatisation.</p><div class="profile-actions"><a class="button button-primary" href="assets/CV.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"></path></svg>Télécharger mon CV<span class="button-arrow" aria-hidden="true">→</span></a><a class="button button-secondary" href="mailto:noebriffa37@gmail.com"><span>Me contacter</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 5.5h16v13H4z"></path><path d="m4 7 8 6 8-6"></path></svg></a></div></div><aside class="profile-aside" aria-label="Repères de profil"><div class="profile-heading"><span class="profile-kicker"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6 4.5h12v15l-6-3.5-6 3.5z"></path></svg>Repères</span><span class="profile-year">// 2027</span></div><ul class="profile-list"><li><span class="profile-row"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z"></path><path d="M6.5 10.5V16c2.8 2.2 8.2 2.2 11 0v-5.5M21 9v5"></path></svg><strong>Master SSI · 5e année</strong></span><span>Formation en cours à l’UTT</span></li><li><span class="profile-row"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-3.8 3A4 4 0 0 0 5 10a4 4 0 0 0 1.5 3.1A4 4 0 0 0 9 20c1.2 0 2.3-.5 3-1.3.7.8 1.8 1.3 3 1.3a4 4 0 0 0 2.5-6.9A4 4 0 0 0 19 10a4 4 0 0 0-3.2-3.9A4 4 0 0 0 12 3Z"></path><path d="M9 9.5h.1M15 9.5h.1M9 14.5c2 1.3 4 1.3 6 0"></path></svg><strong>Python · IA appliquée</strong></span><span>Projets personnels et machine learning</span></li><li><span class="profile-row"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m12 3 1.3 1.9 2.3.4.5 2.3 2 1.2-.8 2.2.8 2.2-2 1.2-.5 2.3-2.3.4L12 21l-1.3-1.9-2.3-.4-.5-2.3-2-1.2.8-2.2-.8-2.2 2-1.2.5-2.3 2.3-.4L12 3Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg><strong>RPA · UiPath</strong></span><span>Stage à la DRHAT</span></li><li><span class="profile-row"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 20V11h4v9m4 0V7h4v13m4 0V3h-4v17"></path></svg><strong>Stage de fin d’études</strong></span><span>À partir de l’été 2027</span></li></ul><p class="profile-quote">« Des systèmes plus sûrs,<br>plus utiles, plus proches du réel. »</p></aside></section>
+    <div class="manifesto" aria-label="Manifeste"><strong>Faire fonctionner.<br>Faire comprendre.</strong><p>Des systèmes IA et cybersécurité, locaux et utiles :<br>des outils compréhensibles, sécurisés et réellement adoptés.</p><div class="manifesto-signals" aria-label="Principes : local, sûr, utile"><span><i aria-hidden="true"></i>LOCAL</span><span><i aria-hidden="true"></i>SÛR</span><span><i aria-hidden="true"></i>UTILE</span></div></div>
+    <section id="projets" class="section" aria-labelledby="projets-titre"><div class="section-intro"><h2 id="projets-titre">Projets sélectionnés</h2><p>Trois projets qui relient recherche, prototypage local et systèmes concrets.</p></div><div class="project-index">
+      <a class="featured-link" href="projets/colorisation.html"><span class="featured-visual"><img src="assets/featured/project-01-colorisation-visual.png" loading="eager" decoding="async" alt="Comparaison d’un paysage de montagne en niveaux de gris et en couleur"></span><span class="featured-copy"><small class="featured-category"><i class="category-dot" aria-hidden="true"></i>Vision par ordinateur</small><strong>Colorisation d’images</strong><span class="featured-description">Un modèle qui redonne une couleur plausible au gris.</span><span class="featured-tech" aria-label="Technologies : Python, PyTorch, vision par ordinateur"><span>Python</span><span>PyTorch</span><span>Computer Vision</span></span><span class="featured-arrow" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></span></a>
+      <a class="featured-link" href="projets/local-rag.html"><span class="featured-visual"><img src="assets/featured/project-02-rag-visual.png" loading="lazy" decoding="async" alt="Interface d’un assistant RAG local avec une réponse documentaire sourcée"></span><span class="featured-copy"><small class="featured-category"><i class="category-dot" aria-hidden="true"></i>IA locale</small><strong>Local RAG Assistant</strong><span class="featured-description">Un assistant PDF local, de la recherche à la réponse sourcée.</span><span class="featured-tech" aria-label="Technologies : RAG, LLM local, Python, sécurité"><span>RAG</span><span>LLM local</span><span>Python</span><span>Sécurité</span></span><span class="featured-arrow" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></span></a>
+      <a class="featured-link" href="projets/warungfit.html"><span class="featured-visual"><img src="assets/featured/project-03-warungfit-visual.png" loading="lazy" decoding="async" alt="Écran mobile WarungFit présentant un repas et ses informations nutritionnelles"></span><span class="featured-copy"><small class="featured-category"><i class="category-dot" aria-hidden="true"></i>Application mobile</small><strong>WarungFit</strong><span class="featured-description">Estimer un repas, corriger le résultat, garder la main.</span><span class="featured-tech" aria-label="Technologies : Flutter, nutrition, UX/UI, données locales"><span>Flutter</span><span>Nutrition</span><span>UX/UI</span><span>Données locales</span></span><span class="featured-arrow" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></span></a>
+    </div><a class="all-projects-link" href="projets/index.html">Voir tous les projets →</a></section>
+  </div>
+  <footer class="compact-footer"><div class="footer-identity">Noé Briffa /<small>SSI, IA appliquée, systèmes locaux et automatisation.</small></div><div class="footer-links"><a href="mailto:noebriffa37@gmail.com">Email</a><a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a><a href="https://github.com/Noe-Briffa">GitHub</a></div><div class="footer-words" aria-hidden="true">APPRENDRE<br>CONSTRUIRE<br>SÉCURISER</div></footer>
+</main></body></html>
