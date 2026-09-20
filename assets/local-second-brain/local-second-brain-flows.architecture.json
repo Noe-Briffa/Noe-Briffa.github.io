@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Flux du Local Second Brain",
+    "output": "local-second-brain-flows-architecture.html",
+    "quality_profile": "showcase",
+    "viewBox": [1320, 680],
+    "views": [
+      { "id": "sources-flow", "label": "Sources", "focus": ["sources", "inbox", "ready"], "note": "Des contenus variés convergent vers la file locale." },
+      { "id": "jobs-flow", "label": "Pipeline", "focus": ["waiting", "processing", "done"], "note": "Chaque job progresse par états explicites." },
+      { "id": "enrichment-flow", "label": "Enrichissement", "focus": ["raw", "analysis", "note", "links"], "note": "Un contenu brut devient une note reliée." }
+    ]
+  },
+  "components": [
+    { "id": "sources", "type": "external", "label": "Sources variées", "sublabel": "sources multimédia", "pos": [80, 110], "size": [230, 72], "tag": "Entrées" },
+    { "id": "inbox", "type": "messagebus", "label": "INBOX locale", "sublabel": "contenu reçu", "pos": [420, 110], "size": [220, 72], "tag": "Collecte" },
+    { "id": "ready", "type": "backend", "label": "Prêt à traiter", "sublabel": "titre · source · date", "pos": [760, 110], "size": [240, 72], "tag": "Contexte" },
+    { "id": "waiting", "type": "messagebus", "label": "En attente", "sublabel": "job créé", "pos": [80, 300], "size": [230, 72], "tag": "État" },
+    { "id": "processing", "type": "backend", "label": "En cours", "sublabel": "transcription · analyse", "pos": [420, 300], "size": [240, 72], "tag": "État" },
+    { "id": "done", "type": "database", "label": "Terminé", "sublabel": "note prête à relier", "pos": [760, 300], "size": [240, 72], "tag": "État" },
+    { "id": "raw", "type": "external", "label": "Contenu brut", "sublabel": "texte · audio · image · lien", "pos": [80, 500], "size": [250, 72], "tag": "Entrée" },
+    { "id": "analysis", "type": "backend", "label": "Analyse locale", "sublabel": "transcription · résumé", "pos": [400, 500], "size": [250, 72], "tag": "Enrichissement" },
+    { "id": "note", "type": "database", "label": "Note structurée", "sublabel": "contenu compris", "pos": [720, 500], "size": [250, 72], "tag": "Obsidian" },
+    { "id": "links", "type": "backend", "label": "Liens calculés", "sublabel": "concepts reliés", "pos": [1040, 500], "size": [250, 72], "tag": "Graphe" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Traitements locaux", "wraps": ["inbox", "ready", "waiting", "processing", "done", "analysis", "note", "links"], "pad": 28 }
+  ],
+  "connections": [
+    { "id": "sources-inbox", "from": "sources", "to": "inbox", "label": "recevoir", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "id": "inbox-ready", "from": "inbox", "to": "ready", "label": "normaliser", "fromSide": "right", "toSide": "left" },
+    { "id": "ready-waiting", "from": "ready", "to": "waiting", "label": "créer un job", "fromSide": "bottom", "toSide": "top" },
+    { "id": "waiting-processing", "from": "waiting", "to": "processing", "label": "démarrer", "fromSide": "right", "toSide": "left" },
+    { "id": "processing-done", "from": "processing", "to": "done", "label": "terminer", "fromSide": "right", "toSide": "left" },
+    { "id": "raw-analysis", "from": "raw", "to": "analysis", "label": "extraire", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "id": "analysis-note", "from": "analysis", "to": "note", "label": "structurer", "fromSide": "right", "toSide": "left" },
+    { "id": "note-links", "from": "note", "to": "links", "label": "relier", "variant": "security", "fromSide": "right", "toSide": "left" }
+  ]
+}

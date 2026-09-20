@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Architecture du Local Second Brain",
+    "output": "local-second-brain-architecture.html",
+    "quality_profile": "showcase",
+    "viewBox": [1280, 720],
+    "views": [
+      { "id": "content-path", "label": "Parcours d’un contenu", "focus": ["sources", "sync", "jobs", "enrich", "obsidian"], "note": "Suivre un contenu depuis une source externe jusqu’à sa note locale." },
+      { "id": "control-surface", "label": "Pilotage local", "focus": ["frontend", "api", "jobs", "mcp"], "note": "Voir comment l’interface et le serveur MCP pilotent les traitements locaux." }
+    ]
+  },
+  "components": [
+    { "id": "sources", "type": "external", "label": "Sources variées", "sublabel": "Liens · vidéo · contenu social", "pos": [40, 280], "size": [170, 74], "tag": "Entrées" },
+    { "id": "frontend", "type": "frontend", "label": "Interface locale", "sublabel": "React / Vite", "pos": [40, 500], "size": [170, 74] },
+    { "id": "sync", "type": "backend", "label": "Synchronisation", "sublabel": "Collecte locale", "pos": [290, 280], "size": [180, 74] },
+    { "id": "api", "type": "backend", "label": "API de pilotage", "sublabel": "FastAPI", "pos": [290, 500], "size": [180, 74] },
+    { "id": "jobs", "type": "messagebus", "label": "Pipeline de jobs", "sublabel": "États · reprises · files", "pos": [550, 280], "size": [190, 74] },
+    { "id": "enrich", "type": "backend", "label": "Enrichissement", "sublabel": "Transcription · analyse", "pos": [820, 280], "size": [190, 74] },
+    { "id": "mcp", "type": "security", "label": "Serveur MCP", "sublabel": "Accès contrôlé", "pos": [550, 500], "size": [190, 74] },
+    { "id": "agents", "type": "external", "label": "Agents IA compatibles MCP", "sublabel": "Pilotage conversationnel", "pos": [800, 500], "size": [210, 74], "tag": "Agent" },
+    { "id": "obsidian", "type": "database", "label": "Obsidian", "sublabel": "Notes · liens · graphe", "pos": [1040, 280], "size": [160, 74], "tag": "Local" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Traitements locaux", "wraps": ["sync", "api", "jobs", "enrich", "mcp", "obsidian"], "pad": 32 }
+  ],
+  "connections": [
+    { "id": "sources-sync", "from": "sources", "to": "sync", "label": "collecter", "variant": "emphasis" },
+    { "id": "sync-jobs", "from": "sync", "to": "jobs", "label": "créer un job" },
+    { "id": "jobs-enrich", "from": "jobs", "to": "enrich", "label": "traiter" },
+    { "id": "enrich-obsidian", "from": "enrich", "to": "obsidian", "label": "écrire une note", "labelAt": [1025, 368] },
+    { "id": "frontend-api", "from": "frontend", "to": "api", "label": "piloter", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "id": "api-jobs", "from": "api", "to": "jobs", "label": "suivre les états", "fromSide": "top", "toSide": "bottom", "labelDy": -50 },
+    { "id": "mcp-api", "from": "mcp", "to": "api", "label": "outils locaux", "variant": "security", "fromSide": "left", "toSide": "right" },
+    { "id": "agents-mcp", "from": "agents", "to": "mcp", "label": "outils MCP", "variant": "security", "fromSide": "left", "toSide": "right" },
+    { "id": "mcp-obsidian", "from": "mcp", "to": "obsidian", "label": "lire / relier", "variant": "security", "fromSide": "top", "toSide": "bottom", "labelDy": -50 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Collecte", "items": ["Sources multiples", "Synchronisation locale", "Données conservées dans le projet"] },
+    { "dot": "emerald", "title": "Traitement", "items": ["Pipeline de jobs", "Transcription et enrichissement", "États et reprises"] },
+    { "dot": "rose", "title": "Connaissances", "items": ["Notes Markdown", "Liens entre concepts", "Graphe Obsidian", "Pilotage par agents MCP"] }
+  ]
+}
