@@ -189,6 +189,14 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
 .home-page .profile-list li>span:last-child{font-family:Georgia,serif;font-size:.78rem}
 .home-page .profile-quote{border-top:1px solid var(--line);padding:14px 0 0 42px;margin-top:0;font-size:.91rem}
 .home-page .profile-quote::before{content:none}
+@media(prefers-reduced-motion:no-preference){
+  @keyframes profile-reperes-enter{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+  .home-page .profile-list li{animation:profile-reperes-enter .28s cubic-bezier(.22,1,.36,1) both}
+  .home-page .profile-list li:nth-child(1){animation-delay:60ms}
+  .home-page .profile-list li:nth-child(2){animation-delay:120ms}
+  .home-page .profile-list li:nth-child(3){animation-delay:180ms}
+  .home-page .profile-list li:nth-child(4){animation-delay:240ms}
+}
 .home-page .manifesto{position:relative;grid-template-columns:minmax(220px,.8fr) minmax(0,2fr) auto;gap:clamp(24px,4vw,64px);align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0 18px}
 .home-page .manifesto strong{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;line-height:1.02}
 .home-page .manifesto p{margin:0;padding-left:42px;border-left:1px solid #c2c8bd;color:#516873;font-family:Georgia,serif;font-size:.94rem;line-height:1.45}
