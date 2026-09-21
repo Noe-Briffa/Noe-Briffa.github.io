@@ -198,9 +198,8 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
   .home-page .profile-list li:nth-child(3){animation-delay:180ms}
   .home-page .profile-list li:nth-child(4){animation-delay:240ms}
 }
-.home-page .manifesto{position:relative;grid-template-columns:minmax(220px,.8fr) minmax(0,2fr) auto;gap:clamp(24px,4vw,64px);align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0 18px}
-.home-page .manifesto strong{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;line-height:1.02}
-.home-page .manifesto p{margin:0;padding-left:42px;border-left:1px solid #c2c8bd;color:#516873;font-family:Georgia,serif;font-size:.94rem;line-height:1.45}
+.home-page .manifesto{position:relative;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,4vw,64px);align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0 18px}
+.home-page .manifesto p{margin:0;color:#516873;font-family:Georgia,serif;font-size:.94rem;line-height:1.45}
 .manifesto-signals{display:flex;gap:13px;align-self:start;padding-top:2px;color:#617680;font:600 .59rem/1 Arial,sans-serif;letter-spacing:.19em}
 .manifesto-signals span{display:flex;flex-direction:column;align-items:center;gap:7px}
 .manifesto-signals i{width:7px;height:7px;border-radius:50%;background:#53a080}.manifesto-signals span:nth-child(2) i{background:#57a3c3}.manifesto-signals span:nth-child(3) i{background:#75b4d4}
@@ -231,7 +230,7 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
   .home-page .section-intro{display:block}
   .home-page .section-intro p{margin:14px 0 0;padding-left:48px}
   .home-page .manifesto{grid-template-columns:1fr;gap:13px}
-  .home-page .manifesto p{padding:12px 0 0;border-left:0;border-top:1px solid #c2c8bd}
+  .home-page .manifesto p{padding:0}
   .manifesto-signals{justify-content:flex-end}
   .home-page .compact-footer{grid-template-columns:1fr;gap:18px}
   .home-page .footer-links{justify-content:flex-start}
