@@ -27,13 +27,15 @@
 <script>
   const hero = document.querySelector('.hero-copy');
   if (hero) {
-    hero.querySelector('.eyebrow').textContent = 'Recherche de stage · Été 2027';
+    hero.querySelector('.eyebrow').textContent = "Recherche d'un stage (PFE) de 6 mois, été 2027";
     hero.querySelector('h1').textContent = 'SSI et IA appliquée';
-    hero.querySelector('.lede').textContent = 'Étudiant en Master SSI à l’UTT, je m’intéresse aux sujets où la cybersécurité rencontre l’IA. J’aime aller du code aux tests pour comprendre ce qui fonctionne vraiment.';
-    hero.querySelector('.profile-note').textContent = 'Je cherche un stage de fin d’études en cybersécurité, idéalement avec une dimension IA, pour réunir ces deux centres d’intérêt.';
+    hero.querySelector('.lede').textContent = 'Élève ingénieur en 5e année à l’UTT, je prépare également un Master SSI.';
+    hero.querySelector('.profile-note').textContent = "Je cherche un stage (PFE) de 6 mois en cybersécurité, idéalement avec une dimension IA, pour réunir ces deux centres d’intérêt.";
   }
   const profile = document.querySelector('.profile-aside');
   if (profile) {
+    const profileDegree = profile.querySelector('.profile-list strong');
+    if (profileDegree) profileDegree.textContent = 'Élève ingénieur en 5e année à l’UTT';
     profile.querySelector('.profile-year')?.remove();
     profile.querySelector('.profile-quote').innerHTML = '« Ce que je ne peux pas créer, je ne le comprends pas. »<br><span>- Richard Feynman</span>';
     const icons = [
