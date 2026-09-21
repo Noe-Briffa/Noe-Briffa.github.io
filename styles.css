@@ -182,8 +182,7 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
 .home-page .profile-kicker{display:flex;align-items:center;gap:12px;color:var(--ink);font-family:Arial,ui-sans-serif,system-ui,sans-serif;font-size:.76rem;letter-spacing:.16em}
 .home-page .profile-kicker svg{width:21px;height:21px;fill:none;stroke:#173147;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.55}
 .home-page .profile-list{margin:8px 0 0}
-.home-page .profile-list li{position:relative;padding:14px 24px 14px 0}
-.home-page .profile-list li::after{content:"›";position:absolute;right:1px;top:50%;color:#6a7b86;font-size:1.7rem;line-height:1;transform:translateY(-50%)}
+.home-page .profile-list li{padding:14px 0}
 .home-page .profile-row{gap:16px}
 .home-page .profile-row svg{width:26px;height:26px;color:#18354d;stroke-width:1.45}
 .home-page .profile-list li>span:last-child{font-family:Georgia,serif;font-size:.78rem}
