@@ -36,6 +36,8 @@
   if (profile) {
     const profileDegree = profile.querySelector('.profile-list strong');
     if (profileDegree) profileDegree.textContent = 'Élève ingénieur en 5e année à l’UTT';
+    const profileFormation = profile.querySelector('.profile-list li > span:last-child');
+    if (profileFormation) profileFormation.textContent = 'Formation en cours à l’UTT • Master SSI';
     profile.querySelector('.profile-year')?.remove();
     profile.querySelector('.profile-quote').innerHTML = '« Ce que je ne peux pas créer, je ne le comprends pas. »<br><span>- Richard Feynman</span>';
     const icons = [
