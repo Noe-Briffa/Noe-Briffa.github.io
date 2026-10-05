@@ -1,0 +1,7 @@
+model,approach,cases,resolved,valid_conclusions,token_intersection,tokens_sum,token_source,seconds_median,seconds_min,seconds_max
+gpt-6.1-sol,full-decompilation,20,19,20,20,2893524,codex_events,101.90600000000268,91.60899999999674,119.79699999999139
+gpt-6.1-sol,static-summary,20,18,20,20,1989868,codex_events,127.03149999999732,116.61000000001513,145.56299999999464
+gpt-6.1-sol,agent,20,19,20,20,2049190,codex_events,81.86750000000393,51.82800000000134,142.67200000000594
+opencode-go-responses/muse-spark-1.3-contributor,full-decompilation,20,19,20,19,1516208,router_provider_ledger,46.08599999999569,31.405999999988126,89.45300000000861
+opencode-go-responses/muse-spark-1.3-contributor,static-summary,20,18,20,19,1091872,router_provider_ledger,47.21899999999732,25.312999999994645,113.64100000000326
+opencode-go-responses/muse-spark-1.3-contributor,agent,20,19,20,19,8251795,router_provider_ledger,123.17149999999947,81.38999999999942,352.54699999999866

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 650" role="img" aria-labelledby="title"><title id="title">Architecture : inspection locale, décisions distantes, preuves vérifiées</title><rect width="920" height="650" fill="#fbfaf5"/><style>text{font:20px Arial,sans-serif;fill:#17231f}.heading{font:38px Georgia,serif}.mono{font:19px Consolas,monospace}.small{font:16px Arial,sans-serif}</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#496832"/></marker></defs>
+<text x="32" y="45" class="heading">Une boucle contrôlée</text>
+<rect x="24" y="77" width="565" height="490" rx="8" fill="#eef1e6" stroke="#d3d2c6"/>
+<rect x="615" y="77" width="280" height="490" rx="8" fill="#eef2f4" stroke="#b8c7ca"/>
+<text x="44" y="111" class="small">LOCAL / ANALYSE STATIQUE</text><text x="638" y="111" class="small">DISTANT / MODÈLE</text>
+<g fill="#fbfaf5" stroke="#68746d"><rect x="48" y="145" width="216" height="75" rx="4"/><rect x="334" y="145" width="229" height="75" rx="4"/><rect x="334" y="278" width="229" height="82" rx="4"/><rect x="48" y="278" width="216" height="82" rx="4"/><rect x="48" y="439" width="515" height="82" rx="4"/><rect x="638" y="248" width="233" height="116" rx="4"/></g>
+<text x="66" y="176">Binaire + objectif</text><text x="66" y="202" class="small">Le binaire n’est pas exécuté</text>
+<text x="351" y="176">Session Ghidra</text><text x="351" y="202" class="small">Fonctions, code et données</text>
+<text x="351" y="309">Outils autorisés</text><text x="351" y="340" class="small">Observation conservée</text>
+<text x="67" y="309">Contrôle Python</text><text x="67" y="340" class="small">Arguments et budgets</text>
+<text x="658" y="285">Décision structurée</text><text x="658" y="320" class="small">Codex app-server isolé</text><text x="658" y="345" class="small">Aucun accès natif libre</text>
+<text x="68" y="469">Conclusion + citations</text><text x="68" y="501" class="small">Adresses, références et extraits vérifiés ; rapport et trace</text>
+<g fill="none" stroke="#496832" stroke-width="2" marker-end="url(#arrow)"><path d="M264 182 H334"/><path d="M448 220 V278"/><path d="M264 319 H334"/><path d="M156 360 V439"/><path d="M638 306 H575 V245 H157 V278"/><path d="M563 335 H596 V405 H754 V364"/></g>
+<text x="261" y="239" class="small">action proposée</text><text x="650" y="431" class="small">contexte borné</text>
+<text x="32" y="610" class="small">Les observations sélectionnées quittent la machine. Pas le binaire complet.</text>
+</svg>

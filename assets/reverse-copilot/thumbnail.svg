@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 570" role="img" aria-labelledby="title"><title id="title">Reverse Copilot — schéma de fonctionnement</title><rect width="800" height="570" fill="#1d2a25"/><style>text{font:20px Arial,sans-serif;fill:#f5f2e9}.heading{font:38px Georgia,serif}.mono{font:19px Consolas,monospace}.small{font:16px Arial,sans-serif}</style>
+<text x="44" y="58" class="small" fill="#b9e36d">REVERSE COPILOT / GHIDRA + AGENT</text>
+<text x="44" y="115" class="heading">Une logique. Des preuves.</text>
+<path d="M168 246 H303 M471 246 H625 V329 H425 V398" stroke="#b9e36d" stroke-width="3" fill="none"/>
+<circle cx="168" cy="246" r="5" fill="#b9e36d"/><circle cx="303" cy="246" r="5" fill="#b9e36d"/><circle cx="625" cy="329" r="5" fill="#b9e36d"/>
+<rect x="44" y="193" width="224" height="103" rx="5" fill="#2d4137" stroke="#637a6a"/><text x="66" y="229" class="mono">main()</text><text x="66" y="262" class="small">Point de départ</text>
+<rect x="303" y="193" width="247" height="103" rx="5" fill="#2d4137" stroke="#b9e36d"/><text x="325" y="229" class="mono">check_password()</text><text x="325" y="262" class="small">Inspection ciblée</text>
+<rect x="594" y="204" width="160" height="80" rx="5" fill="#2d4137" stroke="#637a6a"/><text x="615" y="250" class="mono">strcmp()</text>
+<rect x="44" y="360" width="710" height="135" rx="5" fill="#f5f2e9"/>
+<text x="67" y="394" class="small" style="fill:#496832">CONCLUSION VÉRIFIABLE</text>
+<text x="67" y="431" class="mono" style="fill:#17231f">Adresse + référence + extrait exact</text>
+<text x="67" y="468" class="small" style="fill:#56665e">Le modèle propose. Python contrôle. Ghidra inspecte.</text>
+<text x="44" y="539" class="small">Schéma de fonctionnement · aucune capture simulée</text>
+</svg>

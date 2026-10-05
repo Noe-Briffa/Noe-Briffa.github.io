@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "date": "2026-10-05",
+  "tests": 8,
+  "cases": 120,
+  "groups": 6,
+  "identical_generations": 2,
+  "browser_checks": [
+    {
+      "name": "home",
+      "width": 390,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant"
+      ],
+      "client": 375,
+      "heading": "SSI et IA appliquée",
+      "pageWidth": 375
+    },
+    {
+      "name": "catalog",
+      "width": 390,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant",
+        "WarungFit",
+        "Local Second Brain"
+      ],
+      "client": 375,
+      "heading": "Tous les projets.",
+      "pageWidth": 375
+    },
+    {
+      "name": "project",
+      "width": 390,
+      "brokenImages": [],
+      "cards": [],
+      "client": 375,
+      "heading": "Comprendre un binaire.Justifier chaque réponse.",
+      "pageWidth": 375
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant"
+      ],
+      "client": 753,
+      "heading": "SSI et IA appliquée",
+      "pageWidth": 753
+    },
+    {
+      "name": "catalog",
+      "width": 768,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant",
+        "WarungFit",
+        "Local Second Brain"
+      ],
+      "client": 753,
+      "heading": "Tous les projets.",
+      "pageWidth": 753
+    },
+    {
+      "name": "project",
+      "width": 768,
+      "brokenImages": [],
+      "cards": [],
+      "client": 753,
+      "heading": "Comprendre un binaire.Justifier chaque réponse.",
+      "pageWidth": 753
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant"
+      ],
+      "client": 1425,
+      "heading": "SSI et IA appliquée",
+      "pageWidth": 1425
+    },
+    {
+      "name": "catalog",
+      "width": 1440,
+      "brokenImages": [],
+      "cards": [
+        "Reverse Copilot",
+        "Colorisation d’images",
+        "Local RAG Assistant",
+        "WarungFit",
+        "Local Second Brain"
+      ],
+      "client": 1425,
+      "heading": "Tous les projets.",
+      "pageWidth": 1425
+    },
+    {
+      "name": "project",
+      "width": 1440,
+      "brokenImages": [],
+      "cards": [],
+      "client": 1425,
+      "heading": "Comprendre un binaire.Justifier chaque réponse.",
+      "pageWidth": 1425
+    }
+  ],
+  "keyboard_focus_visible": true,
+  "table_keyboard_toggle": true,
+  "reduced_motion": "CSS rules verified; system preference not changed",
+  "native_model_calls": 0,
+  "published": false,
+  "historical_data_modified": false,
+  "artifacts_sha256": {
+    "architecture.svg": "e19f90b518258bba3742f1ff3a0f50dd63ce920f01b9737ff3fb285d68af7076",
+    "cases.csv": "c7cbd6deeb3baf0cf4ac0d2fece4d120ad1ee24fbda3f93c8785e25731410f3a",
+    "data.json": "df240af57611719ee6f9b1d04610247e73100bb68f810f7f4467315706c87490",
+    "duration-table.html": "97130597f628395d152865645b92f48ccfe8596d4e07900722b438d408fffc0d",
+    "durations.svg": "25c6e25358ae329ef1ecd2425751144951ec2984e8caf3fd47bb60c194b0446c",
+    "groups.csv": "f00b484e58d0228655e07bd8e9ac027004d25ea9dc1a3c6b87a0cf55b6f8779b",
+    "method.md": "03a80c8a2cf45a167352df30c1d6683e9b692ea1ffe762bb63751cbfa820919a",
+    "resolution.svg": "7e8fe28f4ea14c1fc0385adf00b8a1d097da1224ad87965e64c36967f70d231a",
+    "share.png": "91bad1e0929cd63901f2d2fc5747579e727b5f7381b9b6aef62de45d0c44572a",
+    "tables.html": "f4f54c40f379dfd369123576a19f65be04097e35cd41b027cec4e3f39da3ec7e",
+    "thumbnail.svg": "43014eb87f43cede6a2443f8990df1a5943dce893c9afd9a01abf9ca44a80b02",
+    "tokens-table.html": "ca888554e2c9abd739f59fc810993e89927f98b388e445540b27ee0ead4c8f66",
+    "tokens.svg": "0e95f560f9eb25410b1b82d2f48bdcc401229a249fac3b7cd730c4b93e4db441"
+  },
+  "display_revision": {
+    "model_label": "Muse Spark 1.3",
+    "curves": "solid: blue #0072B2, orange #D55E00, purple #8C3FA6",
+    "prose": "No semicolons in prose or accessible labels; authentic code excerpt retained."
+  }
+}

@@ -6,20 +6,20 @@
 .featured-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
 .featured-copy{grid-template-rows:auto auto 1fr;flex:1}
 .featured-copy span{font-size:.9rem}
-.index-page .featured-link:nth-child(1) .featured-visual img{content:url("assets/featured/project-01-colorisation-visual.png")}
-.index-page .featured-link:nth-child(2) .featured-visual img{content:url("assets/featured/project-02-rag-visual.png")}
-.index-page .featured-link:nth-child(3) .featured-visual img{content:url("assets/featured/project-03-warungfit-visual.png")}
+.index-page .featured-link.project-colorisation .featured-visual img{content:url("assets/featured/project-01-colorisation-visual.png")}
+.index-page .featured-link.project-rag .featured-visual img{content:url("assets/featured/project-02-rag-visual.png")}
+.index-page .featured-link.project-warungfit .featured-visual img{content:url("assets/featured/project-03-warungfit-visual.png")}
 .index-page .project-index{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .index-page .featured-link{position:relative;border:1px solid #d9ded7;border-radius:10px;padding:7px;background:#fffdf9;box-shadow:0 5px 14px rgba(44,67,61,.075),0 0 0 3px rgba(255,253,249,.9);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease}
 .index-page .featured-link:hover,.index-page .featured-link:focus-visible{transform:translateY(-4px);box-shadow:0 12px 22px rgba(44,67,61,.13),0 0 0 3px rgba(255,253,249,.96)}
 .index-page .featured-visual{position:relative;flex:0 0 auto;aspect-ratio:1.6;overflow:hidden;border-radius:6px;background:#f1f2eb}
-.index-page .featured-link:nth-child(4) .featured-visual img{transform:scale(1.3) translateY(-5%);transform-origin:top center}
+.index-page .featured-link.project-second-brain .featured-visual img{transform:scale(1.3) translateY(-5%);transform-origin:top center}
 .index-page .featured-copy{display:flex;min-height:170px;flex-direction:column;gap:9px;padding:14px 16px 15px;border-top:1px solid #d9ded7}
 .index-page .featured-copy small{display:flex;align-items:center;gap:8px;color:#50636a;font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .index-page .featured-copy small::before{content:"";width:8px;height:8px;border-radius:50%;background:#54ad83;flex:none}
-.index-page .featured-link:nth-child(2) .featured-copy small::before{background:#5aa3cf}
-.index-page .featured-link:nth-child(3) .featured-copy small::before{background:#61b881}
-.index-page .featured-link:nth-child(4) .featured-copy small::before{background:#7f8c88}
+.index-page .featured-link.project-rag .featured-copy small::before{background:#5aa3cf}
+.index-page .featured-link.project-warungfit .featured-copy small::before{background:#61b881}
+.index-page .featured-link.project-second-brain .featured-copy small::before{background:#7f8c88}
 .index-page .featured-copy strong{font-size:1.45rem;line-height:1.05;letter-spacing:-.025em}
 .index-page .featured-copy>span{color:#5b7076;font-family:Georgia,serif;font-size:.88rem;line-height:1.42}
 .index-page .featured-copy::after{content:"→";display:grid;place-items:center;align-self:flex-end;width:35px;height:35px;margin-top:auto;border:1px solid #cbd5ce;border-radius:50%;color:#50636a;font-size:1.2rem}
@@ -55,8 +55,8 @@ nav{padding-bottom:13px}
 #projets .featured-copy strong{font-size:1.5rem}
 #projets .featured-category{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .category-dot{width:8px;height:8px;border-radius:50%;background:#54ad83;flex:none}
-.featured-link:nth-child(2) .category-dot{background:#5aa3cf}
-.featured-link:nth-child(3) .category-dot{background:#61b881}
+.featured-link.project-rag .category-dot{background:#5aa3cf}
+.featured-link.project-warungfit .category-dot{background:#61b881}
 .featured-description{font-size:.9rem}
 .featured-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:5px}
 .featured-tech span{border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);font-size:.67rem;line-height:1.25}
@@ -444,3 +444,20 @@ video{display:block;width:100%;max-width:760px;height:auto;margin-top:26px;backg
     margin-left:auto;
   }
 }
+
+/* Reverse Copilot case study: reuse the portfolio palette and typography. */
+.reverse-page .rc-hero-visual{margin:0;background:var(--dark);box-shadow:12px 12px 0 var(--accent);border:1px solid var(--line)}
+.rc-hero-visual img{display:block;width:100%;height:auto}.rc-hero-visual figcaption{padding:12px 16px;color:var(--paper);font-size:.75rem}
+.rc-jump{display:flex;flex-wrap:wrap;gap:12px 24px;padding:15px 0;border-top:1px solid var(--line);font-size:.85rem}
+.reverse-page details{margin-top:20px;padding:16px;border:1px solid var(--line);background:#fbfaf5}.reverse-page summary{cursor:pointer;font-weight:700;line-height:1.5}
+.reverse-page pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;background:var(--dark);color:var(--paper);font: .86rem/1.7 Consolas,monospace}
+.reverse-page code{overflow-wrap:anywhere}.rc-list{padding-left:22px}.rc-list li{margin:12px 0}.rc-approaches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.rc-approaches article{padding:18px;border-top:3px solid var(--accent-ink);background:#fbfaf5}.rc-approaches h3{font:1.3rem Georgia,serif;margin:0 0 12px}.rc-approaches p{font-size:.9rem}
+.rc-chart{max-width:980px;margin:44px auto 0}.rc-chart img{display:block;width:100%;height:auto;border:1px solid var(--line)}.rc-chart figcaption{margin-top:14px;font-size:.9rem;max-width:80ch}.rc-chart-note{max-width:980px;margin:16px auto;color:var(--muted);font-size:.85rem}
+.reverse-page .rc-chart-data,.reverse-page .rc-method{max-width:980px;margin:18px auto 0}.rc-table-scroll{overflow-x:auto;margin-top:18px}.reverse-page table{border-collapse:collapse;width:100%;font-size:.85rem}.reverse-page caption{text-align:left;font-weight:700;margin-bottom:12px}.reverse-page th,.reverse-page td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}.reverse-page th{font-weight:600}.reverse-page thead{background:var(--paper-deep)}
+.project-reverse .category-dot,.project-reverse .featured-copy small::before{background:#719333}.project-rag .category-dot{background:#5aa3cf}.project-warungfit .category-dot{background:#61b881}
+@media(max-width:760px){.rc-approaches{grid-template-columns:1fr}.reverse-page .project-hero{display:block}.reverse-page .rc-hero-visual{margin-top:34px}.reverse-page .rc-chart{overflow-x:auto}.rc-chart img{min-width:660px}.rc-chart{padding-bottom:10px}.rc-chart figcaption{min-width:0}.reverse-page .project-title{font-size:clamp(2.8rem,11vw,4rem)}.reverse-page .rc-hero-visual{box-shadow:7px 7px 0 var(--accent)}}
+
+.project-reverse .featured-visual{background:var(--dark)}
+.project-reverse .featured-visual img{object-fit:contain}
+@media(min-width:761px) and (max-width:1040px){.home-page .profile-intro::before{left:-24px;right:-24px}}
